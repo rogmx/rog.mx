@@ -1,0 +1,93 @@
+.wrapper {
+	width: 900px;
+	margin: 20px auto;
+	padding-left: 300px;	
+}
+
+.content {
+	margin-top: 80px;	
+}
+
+.navbar {
+	background: #FFF;
+	border-bottom: 0;
+	opacity: .9;
+}
+
+.navbar-inverse .navbar-toggle .icon-bar{
+	background: #000;
+}
+
+.navbar-inverse .navbar-collapse{
+	border: 0;
+}
+
+.navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus{
+	background-color: #d0d0d0;
+}
+
+.navbar-inverse .navbar-brand{
+	color: #000;
+}
+.navbar-inverse .navbar-brand:hover{
+	color: #999;
+}
+
+.navbar-inverse .navbar-nav>li>a{
+	color: #000;
+}
+.navbar-inverse .navbar-nav>li>a:hover{
+	color: #999;
+}
+
+header {
+	background: url('../imgs/8seTuSW.jpg') no-repeat center -500px;
+	height: 600px
+}
+
+.content {
+	margin-top: -250px;
+	min-height: 500px;
+	background: white;
+	padding: 25px 50px;
+}
+
+.post-single h1, .post h4{
+	font-family: 'Bitter', serif;
+	text-transform: uppercase;
+}
+
+.post h4{
+	font-size: 21px;
+}
+
+.post h4 a{
+	color: #000;
+}
+
+.post, .post-single {
+	font-family: 'Source Sans Pro', sans-serif;
+	margin-bottom: 35px;
+	font-size: 16px;
+}
+
+.post .read-more{
+	text-align: right;
+}
+
+pre{
+	background: none;
+	border: none;
+}
+
+@media (max-width: 940px) {
+	header{
+		height: 500px;
+		background-position-y: -600px;
+	}
+
+	.wrapper{
+		padding-left: 0px;
+		width: 90%;
+	}
+}

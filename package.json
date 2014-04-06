@@ -1,0 +1,10 @@
+{
+	"name": "siedrix",
+	"version": "0.0.1",
+	"private": true,
+	"dependencies" : {
+		"express"     : "3.5.1",
+		"swig"        : "1.3.2",
+		"paperpress"  : "0.0.7"
+	}
+}

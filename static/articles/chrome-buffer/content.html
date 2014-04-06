@@ -1,0 +1,37 @@
+<p>El martes en la noche, en un rato de ocio, creé una extensión de chrome relativamente sencilla y con un caso de uso relativamente particular.</p>
+
+<p>El caso de uso es que en mi trabajo requiero pasar datos de una página (datos o estilo) a otra página. Ya sea para pasar datos de producción a local para resolver un bug, pasar información de un backup a un sitio que se rompió, etc.</p>
+
+<p>Fuera de mi trabajo se me ocurre que podría usarlo para loggear request de ajax. Guardar el estado de datos en distintos momentos para checar que cambio y mejorar la idea de un bookmarklet para ejecutar javascript en un página.</p>
+
+<p>Esto se puede realizar en 3 lugares, en Mongo, Ruby o Javascript. Dado que Mongo y Ruby son ambientes relativamente nuevos para mi y generalmente implican saltar de un server a otro, mover distintos archivos de lugar en distintas terminales y pasar archivos por SSH, decidí resolver el problema en Javascript.</p>
+
+<p>Exiten distintas maneras de hacer esto, pero había una restricción más que me interesaba tener. Quería una función en la consola que siempre pudiera usar en cualquier página, así que la solución por la que opté fue una Chrome Extension, además tengo una background page que sirve como server y no requiere conexión a un server remoto o algo más instalado en mi computadora.</p>
+
+<p>Las extensiones de Chrome generalmente no permiten acceder el contexto de la página, pero si el dom, por lo cual tuve que hacer un poco de JavascriptFu con estas lineas para tenerlo.</p>
+
+<pre lang="javascript">
+var s = document.createElement('script');
+s.innerHTML = 'window.Buffer = ' + Buffer.toString() + '; window.buffer = new Buffer();';
+document.body.appendChild(s);
+</pre>
+
+<p>Y un poco de guardar datos en el dom para ser leídos por la extensión y el browser. Al final del día quedó una primera versión que resulve mis problemas.</p>
+
+<p>En cualquier momento puedo abrir la consola (F12), teclear buffer.store, pasarle una etiqueta con la que podré requerir el valor después y un objeto, pasar a otra página teclear buffer.fetch la etiqueta anterior y recibir el valor, ya sea en forma de callback o llamando buffer.lastFetch.</p>
+
+<p>En caso de que alguien tenga un interés de usar la extensión da click <a href="https://github.com/Siedrix/Chrome-Buffer" target="_blank">aqui</a>, si tienes algún feature request puedes dejarlo en los comentarios y si tienes algo que desees que corrija agregalo en los issues de github.</p>
+
+<p>Un par de conclusiones:</p>
+
+<ol>
+	<li>Me agrada mucho la idea de tener una serie de herramientas extra corriendo en mi consola, debido a la cantidad de tiempo que paso en el browser y lo omnipresente que es hoy en día. Me quede con ganas de implementar unas cuantas funciones sobre esta extensión, como salvar un objeto a un archivo o poderlo mandar por mail.<br>
+
+	Tengo la idea de crear un chat service que corra dentro de la consola. Para lo cual debo de mejorar el formato en que corre el pasar objetos y eventos de un contexto a otro.</li>
+
+	<li>Chrome decide que las extensiones corran en un contexto aislado por seguridad de los usuarios y por facilidad para los desarrolladores pero creo que en el lado de seguridad todavia no estan haciendo un gran trabajo.<br>
+
+	Si de empezar esta extensión sabía lo fácil que era crear un key logger como parte de una extensión y ahora se que haciendo un proceso similar a lo realizado en esta extensión se puede robar cookies de manera sencilla.<br>
+
+	Lo cual me da un poco de paranoia de tener extensiones instaladas ya que tienes mucho acceso y mucho poder sobre como pueden manipular el comportamiento del browser. Por lo cual requiero darle una hojeada al código o tener confianza en el author del código.</li>
+</ol>
