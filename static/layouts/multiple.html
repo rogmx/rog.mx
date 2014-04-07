@@ -1,8 +1,6 @@
 {% extends './static/layouts/layout.html' %}
-{% block title %}{{ article.title }}{% endblock %}
 
 {% block content %}
-
 	{% for article in articles %}
 	<div class="post">
 		<h4><a href="{{ article.uri }}">{{ article.title }}</a></h4>
