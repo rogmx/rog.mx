@@ -1,6 +1,20 @@
 {% extends './layout.html' %}
 {% block title %}{{ article.title }} | Siedrix.com{% endblock %}
 
+{% block head %}
+{% if article.image %}
+<style type="text/css">
+header{
+	background-image: url('{{ static }}/imgs/{{article.image}}');
+	{% if article.imagePositionY %}
+	background-position-y: {{article.imagePositionY}}
+	{% endif %}
+}
+</style>
+{% endif %}
+{% endblock %}
+
+
 {% block content %}
 	<div class="post-single">
 		<h1>{{ article.title }}</h1>
