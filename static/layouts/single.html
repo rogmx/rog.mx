@@ -9,3 +9,14 @@
 		{% endautoescape %}</div>
 	</div>
 {% endblock %}
+
+{% block js %}
+<script type="text/javascript">
+$(document).ready(function () {
+	$('.content a').each(function(i,item){
+		var $item = $(item);
+		$item.attr('target', '_blank');
+	});
+});
+</script>
+{% endblock %}
