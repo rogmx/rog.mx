@@ -85,11 +85,19 @@ pre{
 	.wrapper {
 		width: 90%;
 		padding-left: 0;
-		max-width: 568px;
 	}
 
 	.content {
-		margin-top: -540px;
+		margin-top: -520px;
+	}
+	.post, .post-single{
+		font-size: 35px;
+	}
+	.post p, .post-single p{
+		margin-bottom: 10px;
+	}
+	.content h1{
+		font-size: 55px;
 	}
 }
 
