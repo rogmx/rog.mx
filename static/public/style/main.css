@@ -70,6 +70,7 @@ header {
 	font-family: 'Source Sans Pro', sans-serif;
 	margin-bottom: 35px;
 	font-size: 16px;
+	text-align: justify;
 }
 
 .post .read-more{
