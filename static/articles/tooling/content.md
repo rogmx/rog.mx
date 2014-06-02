@@ -1,0 +1,13 @@
+Tooling se refiere al proceso de proveer una fábrica con la maquinaria necesaria en preparación para la producción.  La palabra la aprendí en una plática donde me explicaron el proceso para crear un celular. Una parte fundamental es conseguir las herramientas necesarias para el laboratorio en el que desarrollan múltiples prototipos de un modelo además de las personas que operaran la maquinaria y la materia prima que se utiliza. 
+
+Poco a poco empecé a aprender lo que implica este proceso, para después darme cuenta que lo mismo pasa en muchas industrias y a muchos artistas. Una de las mayores sorpresas me la llevé al leer la historia del mármol que fue usado para crear el [David de Miguel Ángel](http://ow.ly/xvkZH).
+
+>El bloque de mármol a partir del cual se creó el David había sido extraído de la cantera de Fantiscritti, en Carrara, y había sido transportado a Florencia por el mar Mediterráneo y remontando el río Arno hasta la ciudad.3 El bloque, de 18 pies de altura y denominado "el gigante", había sido dañado por un artista llamado Simone da Fiesole, que lo había estropeado tratando de esculpir una escultura en él. 
+>
+>El bloque fue apartado por los encargados de Santa María del Fiore y abandonado durante años. Tanto Agostino di Duccio como Antonio Rossellino esculpieron el bloque sin éxito, abandonándolo con varias fracturas y partes a medio trabajar. Las autoridades de la Opera del Duomo comenzaron la búsqueda de un escultor que lograra terminar el trabajo. Varios artistas fueron consultados sobre las posibilidades de esculpir el David, entre ellos Miguel Ángel
+
+Todo esto sucede antes de empezar a trabajar e implica una inversión inicial muy alta, lo cual hace que pocas personas puedan desarrollar celulares o esculpir mármol. Viene también con la responsabilidad inicial de tener las personas correctas para garantizar que la inversión está siendo usada de manera correcta.
+
+En la programación, no tenemos esta barrera de entrada en herramientas y materia prima. Para empezar hacemos un git init y tenemos nuestro pedazo de mármol. Las herramientas pueden ser tan sencillas como deseemos para empezar, en mi caso fue un wamp y notepad++.
+
+Tenemos la ventaja de no necesitar todas nuestras herramientas de inicio. Poco a poco he ido recogiendo grunt, yeoman, sublime text, un js linter y muchas librerías más que hacen mi trabajo más sencillo. Hoy  empiezo un reto personal de usar por 30 días un IDE de la familia de Intellij llamado [Webstorm](http://www.jetbrains.com/webstorm/) con su plugin para [Nodejs](http://www.jetbrains.com/idea/features/nodejs.html), como parte de este camino de recoger y dominar herramientas.
