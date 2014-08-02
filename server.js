@@ -7,7 +7,7 @@ var blog = new Paperpress({
 	directory : 'static',
 	themePath : 'static/layouts',
 	basePath  : '/blog',
-	articlesPerPage : 15,
+	articlesPerPage : 20,
 	pagesPath : ''
 });
 

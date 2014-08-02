@@ -16,7 +16,9 @@ Como nota al margen, recuerda a qué le has dicho que no muchas veces, puede que
 
 Busca subir un poco de código a producción (o staging) todos los días y probar tu producto, mantén claro cual es el problema que quieres resolver y sé objetivo con lo que quieres resolver y sé altamente crítico tu producto y contigo mismo.
 
-> “If I had asked people what they wanted, they would have said faster horses.” -- Henry Ford
+> “If I had asked people what they wanted, they would have said faster horses.”
+> 
+> -- Henry Ford
 
 Busca tener feedback loops muy cortos. Recolecta la mayor información posible de cómo se esta usando tu producto y entiende porqué pasa de esa manera. Muchas veces escuchar a tus usuarios al pie de la letra generará un producto mediocre, pero necesitas escucharlos y entender que muchas veces lo que te están diciendo es no saben como usar tu producto.
 
