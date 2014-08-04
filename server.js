@@ -1,7 +1,10 @@
 var express = require('express'),
-	Paperpress = require('paperpress').Paperpress;
+	Paperpress = require('paperpress').Paperpress,
+	logger = require('morgan');
 
 var server = express();
+
+server.use(logger(':remote-addr :method :response-time :url'));
 
 var blog = new Paperpress({
 	directory : 'static',
@@ -16,6 +19,11 @@ blog.attach(server);
 server.get('/', function (req, res) {
 	res.redirect('/blog');
 });
+
+var webhook = require('./webhook');
+
+server.get('/webhook',webhook(blog));
+server.post('/webhook',webhook(blog));
 
 server.listen(4000);
 console.log('Server running at http://localhost:4000');
