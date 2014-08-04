@@ -4,7 +4,7 @@ var express = require('express'),
 
 var server = express();
 
-server.use(logger(':status :remote-addr :method :response-time ms :url'));
+server.use(logger(':status :x-real-ip :method :response-time ms :url'));
 
 var blog = new Paperpress({
 	directory : 'static',
