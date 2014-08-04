@@ -26,4 +26,4 @@ server.get('/webhook',webhook(blog));
 server.post('/webhook',webhook(blog));
 
 server.listen(4000);
-console.log('Server running at http://localhost:4000');
+console.log('Server running at http://localhost:4000', new Date() );
