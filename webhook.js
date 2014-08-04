@@ -3,7 +3,7 @@ var exec = require('child_process').exec;
 module.exports = function(paperpress){
 	return function (req, res) {
 		if(req.query.key === process.env.WEBHOOK_KEY){
-			exec('git pull origin master', function (error) {
+			exec('git pull --rebase origin master', function (error) {
 				if (error ) { return res.send(500, error); }
 
 				paperpress.readArticles();
