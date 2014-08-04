@@ -20,6 +20,10 @@ server.get('/', function (req, res) {
 	res.redirect('/blog');
 });
 
+server.get('/feed', function (req, res) {
+	res.redirect('/rss');
+});
+
 var webhook = require('./webhook');
 
 server.get('/webhook',webhook(blog));

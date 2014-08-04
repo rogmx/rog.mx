@@ -1,12 +1,11 @@
 {
     "title"       : "Siedrix",
     "description" : "This is my personnal feed!",
-    "link"        : "http://example.com",
-    "image"       : "http://example.com/logo.png",
-    "copyright"   : "Copyright © 2013 John Doe. All rights reserved",
+    "link"        : "http://siedrix.com",
+    "copyright"   : "Copyright © 2013 Siedrix. Beerware",
     "author": {
-        "name" : "John Doe",
-        "email": "john.doe@example.com",
-        "link" : "https://example.com/john-doe"
+        "name" : "Daniel Zavala",
+        "email": "siedrix@gmail.com",
+        "link" : "https://siedrix.com/"
     }
 }
