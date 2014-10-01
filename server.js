@@ -8,17 +8,13 @@ server.use(logger(':status :req[x-real-ip] :method :response-time ms :url'));
 
 var blog = new Paperpress({
 	directory : 'static',
-	themePath : 'static/layouts',
-	basePath  : '/blog',
+	themePath : 'static/themes/rogmx',
+	basePath  : '',
 	articlesPerPage : 20,
 	pagesPath : ''
 });
 
 blog.attach(server);
-
-server.get('/', function (req, res) {
-	res.redirect('/blog');
-});
 
 server.get('/feed', function (req, res) {
 	res.redirect('/rss');
