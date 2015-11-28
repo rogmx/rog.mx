@@ -1,11 +1,11 @@
 {
-    "title"       : "Siedrix",
+    "title"       : "Rogelio Alberto",
     "description" : "This is my personnal feed!",
-    "link"        : "http://siedrix.com",
-    "copyright"   : "Copyright © 2013 Siedrix. Beerware",
+    "link"        : "http://rog.mx",
+    "copyright"   : "Copyright © Rogelio Alberto. Beerware",
     "author": {
-        "name" : "Daniel Zavala",
-        "email": "siedrix@gmail.com",
-        "link" : "https://siedrix.com/"
+        "name" : "Rogelio Alberto",
+        "email": "i@rog.mx",
+        "link" : "https://rog.mx/"
     }
 }

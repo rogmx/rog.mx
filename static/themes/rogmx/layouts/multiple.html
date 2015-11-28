@@ -20,7 +20,11 @@
 				</section>
 			</div><!--.post-text-layer-->
 		</a><!--.post-link-->
-		<div class="post-content-digest" style="display:none"></div>
+		<div class="post-content-digest" style="display:none">
+			{% if article.thumb %}
+			<img src="/static/blog-images/{{ article.thumb }}">
+			{% endif %}
+		</div>
 	</article>
 	{% endfor %}
    	</div>

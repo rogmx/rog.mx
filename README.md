@@ -16,7 +16,7 @@ To run on local do
 To Dos
 
 - Add publish dates to multi(using moment);
-[DONE] Add git pull/restart webhook
+- [DONE] Add git pull/restart webhook
 - Proyects page and Libraries Page -> remove info
 - Move google analitics to config file
 

@@ -9,6 +9,7 @@ server.use(logger(':status :req[x-real-ip] :method :response-time ms :url'));
 var blog = new Paperpress({
 	directory : 'static',
 	themePath : 'static/themes/rogmx',
+	staticPath: 'static',
 	basePath  : '',
 	articlesPerPage : 20,
 	pagesPath : ''
