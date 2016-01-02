@@ -1,0 +1,22 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+  },
+  "globals": {
+    "React": true,
+    "jest": true,
+    "describe": true,
+    "it": true,
+    "expect": true,
+  },
+  "ecmaFeatures": {
+    "jsx": true,
+    "classes": true,
+    "generators": true,
+  },
+  "plugins": [
+    "react"
+  ],
+  "extends": "airbnb",
+}
