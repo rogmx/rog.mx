@@ -1,5 +1,5 @@
 var express = require('express'),
-	Paperpress = require('paperpress').Paperpress,
+	Paperpress = require('./paperpress').Paperpress,
 	logger = require('morgan');
 
 var server = express();
