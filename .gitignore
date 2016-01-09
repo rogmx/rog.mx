@@ -1,6 +1,0 @@
-.git
-.DS_Store
-node_modules
-client/public
-npm-debug.log
-config.js
