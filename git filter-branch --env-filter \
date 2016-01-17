@@ -1,6 +1,0 @@
-git filter-branch --env-filter \
-"if test \$GIT_COMMIT = 'f492951ce10e501a1e627dfec93a4f7141ca17fe'
-then
-    export GIT_AUTHOR_DATE='Mon, 10 Jan 2016 00:12:00 -0500'
-    export GIT_COMMITTER_DATE='Mon, 10 Jan 2016 00:12:00 -0500'
-fi" && rm -fr "$(git rev-parse --git-dir)/refs/original/"
