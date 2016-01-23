@@ -4,7 +4,7 @@
   "description": "Repository for rog.mx",
   "repository": {
     "type": "git",
-    "url": "git://github.com/rogr/rogmx.git"
+    "url": "git@github.com:rogr/rogmx.git"
   },
   "author": "Rogelio Alberto <i@rog.mx>",
   "license": "MIT",
@@ -17,21 +17,6 @@
     "start:tunnel": "cross-env NODE_ENV=development node server",
     "start:prod": "cross-env NODE_ENV=production node server",
     "pagespeed": "node ./internals/scripts/pagespeed.js",
-    "presetup": "npm i chalk",
-    "setup": "node ./internals/scripts/setup.js",
-    "clean": "shjs ./internals/scripts/clean.js",
-    "generate": "plop --plopfile internals/generators/index.js",
-    "lint": "npm run lint:js && npm run lint:css",
-    "lint:js": "npm run lint:eslint && npm run lint:jscs",
-    "lint:js:staged": "npm run lint:eslint:staged && npm run lint:jscs:staged",
-    "lint:eslint": "eslint . --ignore-path .gitignore",
-    "lint:eslint:staged": "eslint-staged",
-    "lint:jscs": "jscs .",
-    "lint:jscs:staged": "jscs-staged",
-    "lint:css": "stylelint ./app/**/*.css",
-    "lint:css:staged": "stylelint-staged",
-    "lint:staged": "npm run lint:js:staged && npm run lint:css:staged",
-    "pretest": "npm run lint",
     "test": "cross-env NODE_ENV=test karma start internals/testing/karma.conf.js --single-run",
     "test:watch": "npm run test -- --auto-watch --no-single-run",
     "test:firefox": "npm run test -- --browsers Firefox",
@@ -39,82 +24,12 @@
     "test:ie": "npm run test -- --browsers IE",
     "coveralls": "cat ./coverage/lcov/lcov.info | coveralls"
   },
-  "pre-commit": "lint:staged",
   "babel": {
     "presets": [
       "es2015-webpack",
       "react",
       "stage-0"
     ]
-  },
-  "eslintConfig": {
-    "parser": "babel-eslint",
-    "extends": "airbnb",
-    "env": {
-      "browser": true,
-      "node": true,
-      "mocha": true,
-      "es6": true
-    },
-    "plugins": [
-      "react",
-      "jsx-a11y"
-    ],
-    "parserOptions": {
-      "ecmaVersion": 6,
-      "sourceType": "module",
-      "ecmaFeatures": {
-        "jsx": true
-      }
-    },
-    "rules": {
-      "import/no-unresolved": 2,
-      "comma-dangle": [2, "always-multiline"],
-      "indent": [2, 2, { "SwitchCase": 1 }],
-      "no-console": 1,
-      "max-len": 0,
-      "prefer-template": 2,
-      "no-use-before-define": 0,
-      "newline-per-chained-call": 0,
-      "arrow-body-style": [2, "as-needed"],
-      "jsx-a11y/href-no-hash": 2,
-      "jsx-a11y/label-has-for": 2,
-      "jsx-a11y/mouse-events-have-key-events": 2,
-      "jsx-a11y/role-has-required-aria-props": 2,
-      "jsx-a11y/role-supports-aria-props": 2,
-      "jsx-a11y/aria-props": 2
-    },
-    "settings": {
-      "import/resolver": {
-        "webpack": {
-          "config": "./internals/webpack/webpack.test.babel.js"
-        }
-      }
-    }
-  },
-  "jscsConfig": {
-    "preset": "airbnb",
-    "validateQuoteMarks": null,
-    "requireTrailingComma": null,
-    "maximumLineLength": null,
-    "maxErrors": null,
-    "requireCamelCaseOrUpperCaseIdentifiers": null,
-    "requireShorthandArrowFunctions": null,
-    "excludeFiles": [
-      "build/**",
-      "coverage/**",
-      "docs/**",
-      "node_modules/**"
-    ]
-  },
-  "stylelint": {
-    "extends": "stylelint-config-standard",
-    "rules": {
-      "color-hex-case": "upper",
-      "string-quotes": "single",
-      "font-family-name-quotes": "single-where-recommended",
-      "indentation": 2
-    }
   },
   "dependencies": {
     "babel-polyfill": "^6.7.4",
@@ -155,12 +70,6 @@
     "cross-env": "^1.0.7",
     "css-loader": "^0.23.1",
     "enzyme": "^2.2.0",
-    "eslint": "^2.8.0",
-    "eslint-config-airbnb": "^8.0.0",
-    "eslint-import-resolver-webpack": "^0.2.2",
-    "eslint-plugin-import": "^1.6.0",
-    "eslint-plugin-jsx-a11y": "^1.0.3",
-    "eslint-plugin-react": "^5.0.1",
     "eventsource-polyfill": "^0.9.6",
     "expect": "^1.18.0",
     "expect-jsx": "^2.5.1",
@@ -173,7 +82,6 @@
     "ip": "^1.1.2",
     "isparta": "^4.0.0",
     "isparta-loader": "^2.0.0",
-    "jscs": "^2.11.0",
     "json-loader": "^0.5.4",
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^0.2.3",
@@ -185,12 +93,10 @@
     "karma-safari-launcher": "^0.1.1",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-webpack": "^1.7.0",
-    "lint-staged": "^0.2.1",
     "mocha": "^2.4.5",
     "ngrok": "2.1.7",
     "null-loader": "^0.1.1",
     "offline-plugin": "^3.2.0",
-    "plop": "^1.5.0",
     "postcss-cssnext": "^2.5.2",
     "postcss-focus": "^1.0.0",
     "postcss-loader": "^0.8.2",
@@ -200,8 +106,6 @@
     "shelljs": "^0.7.0",
     "sinon": "^2.0.0-pre",
     "style-loader": "^0.13.1",
-    "stylelint": "^6.2.2",
-    "stylelint-config-standard": "^6.0.0",
     "url-loader": "^0.5.7",
     "webpack": "^2.1.0-beta.6",
     "webpack-dev-middleware": "^1.6.1",
