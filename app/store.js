@@ -11,7 +11,7 @@ import sagas from './sagas'
 import createReducer from './reducers'
 const sagaMiddleware = createSagaMiddleware()
 
-export default function configureStore(initialState = {}, history) {
+export default function configureStore (initialState = {}, history) {
   // Create the store with two middlewares
   // 1. sagaMiddleware: Makes redux-sagas work
   // 2. routerMiddleware: Syncs the location/URL path to the state
@@ -42,7 +42,7 @@ export default function configureStore(initialState = {}, history) {
 /**
  * Inject an asynchronously loaded reducer
  */
-export function injectAsyncReducer(store, name, asyncReducer) {
+export function injectAsyncReducer (store, name, asyncReducer) {
   store.asyncReducers[name] = asyncReducer // eslint-disable-line
   store.replaceReducer(createReducer(store.asyncReducers))
 }

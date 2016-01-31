@@ -11,21 +11,21 @@ import React from 'react'
 // Import the CSS reset, which HtmlWebpackPlugin transfers to the build folder
 import 'sanitize.css/sanitize.css'
 
-import Footer from 'components/Footer'
+import AboutCard from 'components/AboutCard'
 
 import styles from './styles.css'
 
-function App(props) {
+function App (props) {
   return (
     <div className={styles.wrapper}>
       {props.children}
-      <Footer />
+      <AboutCard />
     </div>
   )
 }
 
 App.propTypes = {
-  children: React.PropTypes.node,
+  children: React.PropTypes.node
 }
 
 export default App

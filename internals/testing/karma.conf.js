@@ -1,5 +1,5 @@
-const webpackConfig = require('../webpack/webpack.test.babel');
-const path = require('path');
+const webpackConfig = require('../webpack/webpack.test.babel')
+const path = require('path')
 
 module.exports = (config) => {
   config.set({
@@ -10,7 +10,7 @@ module.exports = (config) => {
       ? ['ChromeTravis']
       : process.env.APPVEYOR
         ? ['IE'] : ['Chrome'],
-    /*eslint-enable */
+        /*eslint-enable */
 
     autoWatch: false,
     singleRun: true,
@@ -20,35 +20,35 @@ module.exports = (config) => {
         pattern: './test-bundler.js',
         watched: false,
         served: true,
-        included: true,
-      },
+        included: true
+      }
     ],
 
     preprocessors: {
-      ['./test-bundler.js']: ['webpack', 'sourcemap'],
+      ['./test-bundler.js']: ['webpack', 'sourcemap']
     },
 
     webpack: webpackConfig,
 
     // make Webpack bundle generation quiet
     webpackMiddleware: {
-      noInfo: true,
+      noInfo: true
     },
 
     customLaunchers: {
       ChromeTravis: {
         base: 'Chrome',
-        flags: ['--no-sandbox'],
-      },
+        flags: ['--no-sandbox']
+      }
     },
 
     coverageReporter: {
       dir: path.join(process.cwd(), 'coverage'),
       reporters: [
         { type: 'lcov', subdir: 'lcov' },
-        { type: 'html', subdir: 'html' },
-      ],
-    },
+        { type: 'html', subdir: 'html' }
+      ]
+    }
 
-  });
-};
+  })
+}

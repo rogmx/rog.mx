@@ -8,7 +8,7 @@ import 'whatwg-fetch'
  *
  * @return {object} An object containing either "data" or "err"
  */
-export default function request(url, options) {
+export default function request (url, options) {
   return fetch(url, options)
     .then(checkStatus)
     .then(parseJSON)
@@ -23,7 +23,7 @@ export default function request(url, options) {
  *
  * @return {object} The parsed JSON from the request
  */
-function parseJSON(response) {
+function parseJSON (response) {
   return response.json()
 }
 
@@ -34,7 +34,7 @@ function parseJSON(response) {
  *
  * @return {object|undefined} Returns either the response, or throws an error
  */
-function checkStatus(response) {
+function checkStatus (response) {
   if (response.status >= 200 && response.status < 300) {
     return response
   }

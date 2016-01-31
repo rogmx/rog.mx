@@ -1,25 +1,25 @@
 // Important modules this config uses
-const path = require('path');
-const webpack = require('webpack');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const OfflinePlugin = require('offline-plugin');
+const path = require('path')
+const webpack = require('webpack')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const OfflinePlugin = require('offline-plugin')
 
 // PostCSS plugins
-const cssnext = require('postcss-cssnext');
-const postcssFocus = require('postcss-focus');
-const postcssReporter = require('postcss-reporter');
+const cssnext = require('postcss-cssnext')
+const postcssFocus = require('postcss-focus')
+const postcssReporter = require('postcss-reporter')
 
 module.exports = require('./webpack.base.babel')({
   // In production, we skip all hot-reloading stuff
   entry: [
-    path.join(process.cwd(), 'app/app.js'),
+    path.join(process.cwd(), 'app/app.js')
   ],
 
   // Utilize long-term caching by adding content hashes (not compilation hashes) to compiled assets
   output: {
     filename: '[name].[chunkhash].js',
-    chunkFilename: '[name].[chunkhash].chunk.js',
+    chunkFilename: '[name].[chunkhash].chunk.js'
   },
 
   // We use ExtractTextPlugin so we get a seperate CSS file instead
@@ -33,11 +33,11 @@ module.exports = require('./webpack.base.babel')({
   postcssPlugins: [
     postcssFocus(),
     cssnext({
-      browsers: ['last 2 versions', 'IE > 10'],
+      browsers: ['last 2 versions', 'IE > 10']
     }),
     postcssReporter({
-      clearMessages: true,
-    }),
+      clearMessages: true
+    })
   ],
   plugins: [
 
@@ -51,8 +51,8 @@ module.exports = require('./webpack.base.babel')({
     // Minify and optimize the JavaScript
     new webpack.optimize.UglifyJsPlugin({
       compress: {
-        warnings: false, // ...but do not show warnings in the console (there is a lot of them)
-      },
+        warnings: false // ...but do not show warnings in the console (there is a lot of them)
+      }
     }),
 
     // Minify and optimize the index.html
@@ -68,9 +68,9 @@ module.exports = require('./webpack.base.babel')({
         keepClosingSlash: true,
         minifyJS: true,
         minifyCSS: true,
-        minifyURLs: true,
+        minifyURLs: true
       },
-      inject: true,
+      inject: true
     }),
 
     // Extract the CSS into a seperate file
@@ -90,8 +90,8 @@ module.exports = require('./webpack.base.babel')({
         // All chunks marked as `additional`, loaded after main section
         // and do not prevent SW to install. Change to `optional` if
         // do not want them to be preloaded at all (cached only when first loaded)
-        additional: ['*.chunk.js'],
-      },
-    }),
-  ],
-});
+        additional: ['*.chunk.js']
+      }
+    })
+  ]
+})
