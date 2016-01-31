@@ -33,7 +33,7 @@ module.exports = (options) => ({
       loaders: ['style-loader', 'css-loader']
     }, {
       test: /\.jpe?g$|\.gif$|\.png$/i,
-      loader: 'url-loader?limit=10000'
+      loader: 'url-loader?limit=50000'
     }, {
       test: /\.html$/,
       loader: 'html-loader'
