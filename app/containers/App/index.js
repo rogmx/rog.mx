@@ -11,7 +11,7 @@ import React from 'react'
 // Import the CSS reset, which HtmlWebpackPlugin transfers to the build folder
 import 'sanitize.css/sanitize.css'
 
-import Background from 'components/Background'
+import SpaceInvadersTV from 'components/SpaceInvadersTV'
 
 import styles from './styles.css'
 
@@ -19,7 +19,7 @@ function App (props) {
   return (
     <div className={styles.wrapper}>
       {props.children}
-      <Background />
+      <SpaceInvadersTV />
     </div>
   )
 }

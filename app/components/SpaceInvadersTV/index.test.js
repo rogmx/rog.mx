@@ -2,12 +2,12 @@ import expect from 'expect'
 import { shallow } from 'enzyme'
 import React from 'react'
 
-import Background from './index'
+import SpaceInvadersTV from './index'
 
-describe('<Background />', () => {
+describe('<SpaceInvadersTV />', () => {
   it('should render the About Card', () => {
     const renderedComponent = shallow(
-      <Background />
+      <SpaceInvadersTV />
     )
     expect(renderedComponent.contains(
       <section>

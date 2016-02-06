@@ -51,6 +51,7 @@
     "reselect": "^2.5.1",
     "sanitize.css": "^3.3.0",
     "scroll-behavior": "^0.4.0",
+    "static-loader": "^0.1.8",
     "whatwg-fetch": "^0.11.0"
   },
   "devDependencies": {
@@ -113,8 +114,13 @@
   },
   "standard": {
     "parser": "babel-eslint",
-    "globals": ["describe", "it",
-      "fetch", "beforeEach", "afterEach", "Response"
+    "globals": [
+      "describe",
+      "it",
+      "fetch",
+      "beforeEach",
+      "afterEach",
+      "Response"
     ]
   }
 }

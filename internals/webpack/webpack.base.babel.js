@@ -37,6 +37,9 @@ module.exports = (options) => ({
     }, {
       test: /\.html$/,
       loader: 'html-loader'
+    }, {
+      test: /\.(mp4)$/,
+      loader: 'static-loader'
     }]
   },
   plugins: options.plugins.concat([

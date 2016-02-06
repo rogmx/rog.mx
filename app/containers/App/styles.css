@@ -8,6 +8,7 @@ body {
 
 body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: url('./images/spaceinvaders.png')
 }
 
 body.fontLoaded {
@@ -15,8 +16,6 @@ body.fontLoaded {
 }
 
 :global(#app) {
-  min-height: 100%;
-  min-width: 100%;
 }
 
 .wrapper {
