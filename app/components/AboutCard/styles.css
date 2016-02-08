@@ -5,7 +5,7 @@
   display: flex;
   flex-wrap: wrap;
 
-  margin: 0 auto 40px auto;
+  margin: 0 auto;
   &__Bio {
     background: white;
     display: block;
@@ -42,9 +42,7 @@
     max-width: 12%;
     width: 12%;
     margin: 0;
-    padding: 3.5%;
-    list-style-type: none;
-    text-align: center;
+
     background-image: url('./images/rog-logo.png');
     background-color: #1f1f1f;
     background-repeat: no-repeat;
@@ -52,6 +50,36 @@
     flex-direction: column-reverse;
     border-top-left-radius: 2px;
     border-bottom-left-radius: 2px;
+
+    &__List {
+      max-width: 100%;
+      width: 100%;
+      text-align: center;
+      list-style-type: none;
+      padding: 0 30% 5px 30%;
+      &__Item {
+        margin: 5px 0;
+        display: inline-flex;
+      }
+    }
+
+    &__Link{
+      display: block;
+      color: #fff;
+      font-size: 12px;
+      font-weight: 300;
+      line-height: 12px;
+      &__Text {
+        padding: 5px 0;
+        display: inline-block;
+      }
+      &__Icon {
+        width: 100%;
+        filter: saturate(0) brightness(100);
+        fill: #fff;
+      }
+    }
+
   }
 
 }
