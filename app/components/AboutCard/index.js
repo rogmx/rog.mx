@@ -1,7 +1,6 @@
 import React from 'react'
 
 import styles from './styles.css'
-
 import Avatar from './images/me.png'
 
 import IconTwitter from '../Icons/twitter'
