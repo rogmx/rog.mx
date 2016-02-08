@@ -7,12 +7,12 @@ body {
 }
 
 body {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Khula', 'Helvetica Neue', Helvetica, Arial, sans-serif;
   background: url('./images/spaceinvaders.png')
 }
 
 body.fontLoaded {
-  font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-family: 'Khula', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 :global(#app) {

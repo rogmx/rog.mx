@@ -1,10 +1,42 @@
 .AboutCard {
-  background: white;
-  width: 400px;
+  width: 500px;
   height: 500px;
-  padding: 20px;
   overflow: auto;
+  display: flex;
+  flex-wrap: wrap;
 
-  border-radius: 2px;
   margin: 0 auto 40px auto;
+
+  &__Bio {
+    background: white;
+    display: block;
+    clear: both;
+    box-sizing: border-box;
+    width: 88%;
+    color: #fff;
+    order: 1;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    &__Avatar {
+      width: 100%;
+    }
+  }
+
+  &__SocialLinks {
+    line-height: 0;
+    display: flex;
+    box-sizing: border-box;
+    max-width: 12%;
+    width: 12%;
+    margin: 0;
+    padding: 3.5%;
+    list-style-type: none;
+    text-align: center;
+    background-image: url('./images/rog-logo.png');
+    background-color: #1f1f1f;
+    background-repeat: no-repeat;
+    background-position: center 7%;
+    flex-direction: column-reverse;
+  }
+
 }
