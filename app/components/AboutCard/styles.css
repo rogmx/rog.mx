@@ -1,2 +1,10 @@
 .AboutCard {
+  background: white;
+  width: 400px;
+  height: 500px;
+  padding: 20px;
+  overflow: auto;
+
+  border-radius: 2px;
+  margin: 0 auto 40px auto;
 }

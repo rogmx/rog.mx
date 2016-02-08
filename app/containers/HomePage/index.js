@@ -11,6 +11,8 @@ import shouldPureComponentUpdate from 'react-pure-render/function'
 
 import { createSelector } from 'reselect'
 
+import AboutCard from 'components/AboutCard'
+
 import usernameSelector from 'selectors/usernameSelector'
 import loadingSelector from 'selectors/loadingSelector'
 import errorSelector from 'selectors/errorSelector'
@@ -55,10 +57,7 @@ export class HomePage extends React.Component {
     } */
 
     return (
-      <article>
-        <div>
-        </div>
-      </article>
+      <AboutCard />
     )
   }
 }

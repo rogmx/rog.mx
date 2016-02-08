@@ -1,7 +1,7 @@
 import React from 'react'
 
 import styles from './styles.css'
-require('static?!./video/spaceinvaders.mp4?output=spaceinvaders.mp4')
+// require('static?!./video/spaceinvaders.mp4?output=spaceinvaders.mp4')
 
 function SpaceInvadersTV () {
   return (

@@ -11,9 +11,7 @@ describe('<SpaceInvadersTV />', () => {
     )
     expect(renderedComponent.contains(
       <section>
-        <p>
-          Made with love by <a href='https://github.com/rogr'>Rogelio</a>.
-        </p>
+        Hey!
       </section>
     )).toEqual(true)
   })
