@@ -1,24 +1,37 @@
 .AboutCard {
-  width: 500px;
-  height: 500px;
+  width: 450px;
+  height: 360px;
   overflow: auto;
   display: flex;
   flex-wrap: wrap;
 
   margin: 0 auto 40px auto;
-
   &__Bio {
     background: white;
     display: block;
     clear: both;
     box-sizing: border-box;
     width: 88%;
-    color: #fff;
     order: 1;
     border-top-right-radius: 2px;
     border-bottom-right-radius: 2px;
+    color: #222;
     &__Avatar {
       width: 100%;
+      border-top-right-radius: 2px;
+    }
+    &__Info {
+      padding: 12px 10px;
+      &__Title {
+        font-size: 20px;
+        font-weight: 300;
+        line-height: 20px;
+      }
+      &__Subtitle {
+        color: #0091FF;
+        font-size: 14px;
+        font-weight: 300;
+      }
     }
   }
 
@@ -37,6 +50,8 @@
     background-repeat: no-repeat;
     background-position: center 7%;
     flex-direction: column-reverse;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
   }
 
 }

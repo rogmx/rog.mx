@@ -41,7 +41,7 @@ export class HomePage extends React.Component {
     this.props.changeRoute(route)
   }
 
-  render() {
+  render () {
     /* let mainContent = null
 
     // Show a loading indicator when we're loading
