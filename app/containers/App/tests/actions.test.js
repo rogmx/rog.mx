@@ -7,6 +7,7 @@ import { loadRepos, reposLoaded, repoLoadingError,
 } from '../actions'
 
 describe('App Actions', () => {
+  /*
   describe('loadRepos', () => {
     it('should return the correct type', () => {
       const expectedResult = {
@@ -44,4 +45,5 @@ describe('App Actions', () => {
       expect(repoLoadingError(fixture)).toEqual(expectedResult)
     })
   })
+  */
 })

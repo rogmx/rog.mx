@@ -9,6 +9,6 @@
  * export const YOUR_ACTION_CONSTANT = 'yourproject/YourContainer/YOUR_ACTION_CONSTANT'
  */
 
-export const LOAD_CHARMING_FAN = 'thischarmingfan/App/LOAD_CHARMING_FAN'
-export const LOAD_CHARMING_FAN_SUCCESS = 'thischarmingfan/App/LOAD_CHARMING_FAN_SUCCESS'
-export const LOAD_CHARMING_FAN_ERROR = 'thischarmingfan/App/LOAD_CHARMING_FAN_ERROR'
+export const LOAD_REPOS = 'thischarmingfan/App/LOAD_CHARMING_FAN'
+export const LOAD_REPOS_SUCCESS = 'thischarmingfan/App/LOAD_CHARMING_FAN_SUCCESS'
+export const LOAD_REPOS_ERROR = 'thischarmingfan/App/LOAD_CHARMING_FAN_ERROR'
