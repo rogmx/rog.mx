@@ -1,6 +1,7 @@
 /* eslint consistent-return:0 */
 
 const express = require('express')
+const http = require('http')
 const https = require('https')
 const fs = require('fs')
 
@@ -21,33 +22,33 @@ const webpackConfig = isDev
 
 app.use(frontend(webpackConfig))
 
-const port = !isDev ? [80, 443] : [3000, 3003]
-
 if (!isDev) {
-  const server = https.createServer({
-    key: fs.readFileSync('./tls/key.pem'),
-    cert: fs.readFileSync('./tls/cert.pem')
-  }, app)
+  const ssl = {
+    key: fs.readFileSync('/etc/letsencrypt/live/rog.mx/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/rog.mx/fullchain.pem'),
+    ca: fs.readFileSync('/etc/letsencrypt/live/rog.mx/chain.pem')
+  }
 
-  server.listen(port[1])
+  http.createServer(app).listen(process.env.PORT || 8000)
+  https.createServer(ssl, app).listen(process.env.PORT || 8443)
 }
 
 // Start your app.
-app.listen(port[0], (err) => {
+app.listen(process.env.PORT || 8000, (err) => {
   if (err) {
     return logger.error(err)
   }
 
   // Connect to ngrok in dev mode
   if (isDev) {
-    ngrok.connect(port, (innerErr, url) => {
+    ngrok.connect(8000, (innerErr, url) => {
       if (innerErr) {
         return logger.error(innerErr)
       }
 
-      logger.appStarted(port, url)
+      logger.appStarted(8000, url)
     })
   } else {
-    logger.appStarted(port)
+    logger.appStarted(process.env.PORT || 8000)
   }
 })
