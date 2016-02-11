@@ -38,6 +38,7 @@ function serverStarted (err) {
       logger.appStarted(8000, url)
     })
   } else {
+    console.log('Started on Production')
     logger.appStarted(process.env.PORT || 8000)
   }
 }
