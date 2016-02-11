@@ -22,19 +22,8 @@ const webpackConfig = isDev
 
 app.use(frontend(webpackConfig))
 
-if (!isDev) {
-  const ssl = {
-    key: fs.readFileSync('/etc/letsencrypt/live/rog.mx/privkey.pem'),
-    cert: fs.readFileSync('/etc/letsencrypt/live/rog.mx/fullchain.pem'),
-    ca: fs.readFileSync('/etc/letsencrypt/live/rog.mx/chain.pem')
-  }
-
-  http.createServer(app).listen(process.env.PORT || 8000)
-  https.createServer(ssl, app).listen(process.env.PORT || 8443)
-}
-
 // Start your app.
-app.listen(process.env.PORT || 8000, (err) => {
+function serverStarted (err) {
   if (err) {
     return logger.error(err)
   }
@@ -51,4 +40,16 @@ app.listen(process.env.PORT || 8000, (err) => {
   } else {
     logger.appStarted(process.env.PORT || 8000)
   }
-})
+}
+
+if (!isDev) {
+  const ssl = {
+    key: fs.readFileSync('/etc/letsencrypt/live/rog.mx/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/rog.mx/fullchain.pem'),
+    ca: fs.readFileSync('/etc/letsencrypt/live/rog.mx/chain.pem')
+  }
+
+  https.createServer(ssl, app).listen(process.env.PORT || 8443, serverStarted)
+} else {
+  http.createServer(app).listen(process.env.PORT || 8000, serverStarted)
+}
