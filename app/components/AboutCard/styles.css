@@ -26,11 +26,13 @@
         font-size: 20px;
         font-weight: 300;
         line-height: 20px;
+        user-select: none;
       }
       &__Subtitle {
         color: #0091FF;
         font-size: 14px;
         font-weight: 300;
+        user-select: none;
       }
     }
   }
@@ -63,16 +65,22 @@
       }
     }
 
-    &__Link{
+    &__Link {
       display: block;
       color: #fff;
       font-size: 12px;
       font-weight: 300;
       line-height: 12px;
+
+      :hover {
+        text-decoration: underline;
+      }
+
       &__Text {
-        padding: 5px 0;
+        padding: 3px 0;
         display: inline-block;
       }
+
       &__Icon {
         width: 100%
       }
