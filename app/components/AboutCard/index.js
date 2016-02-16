@@ -3,6 +3,7 @@ import React from 'react'
 import styles from './styles.css'
 import Avatar from './images/me.png'
 
+import Icon from '../Icons/Icon'
 import IconTwitter from '../Icons/twitter'
 import IconGithub from '../Icons/github'
 import IconMusic from '../Icons/music'
@@ -21,17 +22,17 @@ function AboutCard () {
         <ul className={styles.AboutCard__SocialLinks__List}>
           <li className={styles.AboutCard__SocialLinks__List__Item}>
             <a className={styles.AboutCard__SocialLinks__Link} href='http://twitter.com/rog3r'>
-              <IconTwitter className={styles.AboutCard__SocialLinks__Link__Icon} />
+              <Icon icon={IconTwitter} svgclass={styles.AboutCard__SocialLinks__Link__Icon} />
             </a>
           </li>
           <li className={styles.AboutCard__SocialLinks__List__Item}>
             <a className={styles.AboutCard__SocialLinks__Link} href='http://github.com/rogr'>
-              <IconGithub className={styles.AboutCard__SocialLinks__Link__Icon} />
+              <Icon icon={IconGithub} svgclass={styles.AboutCard__SocialLinks__Link__Icon} />
             </a>
           </li>
           <li className={styles.AboutCard__SocialLinks__List__Item}>
-            <a className={styles.AboutCard__SocialLinks__Link} href='http://last.fm/rog3r'>
-              <IconMusic className={styles.AboutCard__SocialLinks__Link__Icon} />
+            <a className={styles.AboutCard__SocialLinks__Link} href='http://last.fm/user/rog3r'>
+              <Icon icon={IconMusic} svgclass={styles.AboutCard__SocialLinks__Link__Icon} />
             </a>
           </li>
           <li className={styles.AboutCard__SocialLinks__List__Item}>
