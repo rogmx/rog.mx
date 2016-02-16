@@ -32,47 +32,63 @@ const menuItems = [
   }
 ]
 
-function addMenuItem (item, i) {
-  return (
-    <li key={i} className={styles.AboutCard__SocialLinks__List__Item}>
-      <a className={styles.AboutCard__SocialLinks__Link} href={item.link}>
-        {item.icon !== null
-          ? <Icon
-            icon={item.icon}
-            color='#FFF'
-            colorHover='#0091FF'
-            svgClass={styles.AboutCard__SocialLinks__Link__Icon}
-          />
-          : <span className={styles.AboutCard__SocialLinks__Link__Text}>{item.title}</span>
-        }
-      </a>
-    </li>
-  )
-}
+class AboutCard extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      theme: ''
+    }
+    this.mouseOver = this.mouseOver.bind(this)
+    this.addMenuItem = this.addMenuItem.bind(this)
+  }
 
-function AboutCard () {
-  return (
-    <section className={classNames({
-      [styles.AboutCard]: true,
-      [styles['AboutCard--compact']]: true
-    })}>
-      <div className={styles.AboutCard__Bio}>
-        <img src={Avatar} className={styles.AboutCard__Bio__Avatar} />
-        <div className={styles.AboutCard__Bio__Info}>
-          <h2 className={styles.AboutCard__Bio__Info__Title}>Rogelio Alberto</h2>
-          <p className={styles.AboutCard__Bio__Info__Subtitle}>Web Developer</p>
+  mouseOver () {
+    console.log('Hola')
+  }
+
+  addMenuItem (item, i) {
+    return (
+      <li key={i} className={styles.AboutCard__SocialLinks__List__Item}>
+        <a className={styles.AboutCard__SocialLinks__Link} href={item.link}>
+          {item.icon !== null
+            ? <Icon
+              icon={item.icon}
+              color='#FFF'
+              colorHover='#0091FF'
+              svgClass={styles.AboutCard__SocialLinks__Link__Icon}
+            />
+            : <span className={styles.AboutCard__SocialLinks__Link__Text}>{item.title}</span>
+          }
+        </a>
+      </li>
+    )
+  }
+
+  render () {
+    return (
+      <section className={classNames({
+        [styles.AboutCard]: true,
+        [styles['AboutCard--compact']]: true
+      })}>
+        <div className={styles.AboutCard__Bio}>
+          <img src={Avatar} className={styles.AboutCard__Bio__Avatar} />
+          <div className={styles.AboutCard__Bio__Info}>
+            <h2 className={styles.AboutCard__Bio__Info__Title}>Rogelio Alberto</h2>
+            <p className={styles.AboutCard__Bio__Info__Subtitle}>Web Developer</p>
+          </div>
+          <div className={styles.AboutCard__Activity}>
+            <div className={styles.AboutCard__Activity__Separator}></div>
+            <p>Hola</p>
+          </div>
         </div>
-        <div className={styles.AboutCard__Activity}>
-          <p>Hola</p>
+        <div className={styles.AboutCard__SocialLinks}>
+          <ul className={styles.AboutCard__SocialLinks__List}>
+            {menuItems.map(this.addMenuItem)}
+          </ul>
         </div>
-      </div>
-      <div className={styles.AboutCard__SocialLinks}>
-        <ul className={styles.AboutCard__SocialLinks__List}>
-          {menuItems.map(addMenuItem)}
-        </ul>
-      </div>
-    </section>
-  )
+      </section>
+    )
+  }
 }
 
 export default AboutCard
