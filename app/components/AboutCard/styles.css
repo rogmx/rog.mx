@@ -6,7 +6,7 @@
   margin: 0 auto;
 
   &--compact {
-    height: 460px;
+    height: 560px;
   }
 
   &__Bio {
@@ -87,6 +87,10 @@
       &__Icon {
         width: 100%
       }
+    }
+
+    &__Activity {
+      border-top: 1px solid #333;
     }
 
   }

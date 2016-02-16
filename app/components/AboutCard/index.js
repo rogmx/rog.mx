@@ -34,7 +34,7 @@ const menuItems = [
 
 function addMenuItem (item, i) {
   return (
-    <li className={styles.AboutCard__SocialLinks__List__Item}>
+    <li key={i} className={styles.AboutCard__SocialLinks__List__Item}>
       <a className={styles.AboutCard__SocialLinks__Link} href={item.link}>
         {item.icon !== null
           ? <Icon
