@@ -32,6 +32,7 @@ class Icon extends React.Component {
 }
 
 Icon.propTypes = {
+  icon: React.PropTypes.func.isRequired,
   color: React.PropTypes.string,
   colorHover: React.PropTypes.string,
   svgClass: React.PropTypes.string

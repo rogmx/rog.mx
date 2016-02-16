@@ -8,6 +8,47 @@ import IconTwitter from '../Icons/twitter'
 import IconGithub from '../Icons/github'
 import IconMusic from '../Icons/music'
 
+const menuItems = [
+  {
+    title: 'Twitter',
+    icon: IconTwitter,
+    link: 'http://twitter.com/rog3r'
+  },
+  {
+    title: 'Github',
+    icon: IconGithub,
+    link: 'http://github.com/rogr'
+  },
+  {
+    title: 'Music',
+    icon: IconMusic,
+    link: 'http://last.fm/user/rog3r'
+  },
+  {
+    title: 'Blog',
+    icon: null,
+    link: '#'
+  }
+]
+
+function addMenuItem (item, i) {
+  return (
+    <li className={styles.AboutCard__SocialLinks__List__Item}>
+      <a className={styles.AboutCard__SocialLinks__Link} href={item.link}>
+        {item.icon !== null
+          ? <Icon
+            icon={item.icon}
+            color='#FFF'
+            colorHover='#0091FF'
+            svgClass={styles.AboutCard__SocialLinks__Link__Icon}
+          />
+          : <span className={styles.AboutCard__SocialLinks__Link__Text}>{item.title}</span>
+        }
+      </a>
+    </li>
+  )
+}
+
 function AboutCard () {
   return (
     <section className={styles.AboutCard}>
@@ -20,41 +61,7 @@ function AboutCard () {
       </div>
       <div className={styles.AboutCard__SocialLinks}>
         <ul className={styles.AboutCard__SocialLinks__List}>
-          <li className={styles.AboutCard__SocialLinks__List__Item}>
-            <a className={styles.AboutCard__SocialLinks__Link} href='http://twitter.com/rog3r'>
-              <Icon
-                icon={IconTwitter}
-                color='#FFF'
-                colorHover='#0091FF'
-                svgClass={styles.AboutCard__SocialLinks__Link__Icon}
-              />
-            </a>
-          </li>
-          <li className={styles.AboutCard__SocialLinks__List__Item}>
-            <a className={styles.AboutCard__SocialLinks__Link} href='http://github.com/rogr'>
-              <Icon
-                icon={IconGithub}
-                color='#FFF'
-                colorHover='#0091FF'
-                svgClass={styles.AboutCard__SocialLinks__Link__Icon}
-              />
-            </a>
-          </li>
-          <li className={styles.AboutCard__SocialLinks__List__Item}>
-            <a className={styles.AboutCard__SocialLinks__Link} href='http://last.fm/user/rog3r'>
-              <Icon
-                icon={IconMusic}
-                color='#FFF'
-                colorHover='#0091FF'
-                svgClass={styles.AboutCard__SocialLinks__Link__Icon}
-              />
-            </a>
-          </li>
-          <li className={styles.AboutCard__SocialLinks__List__Item}>
-            <a className={styles.AboutCard__SocialLinks__Link} href='#'>
-              <span className={styles.AboutCard__SocialLinks__Link__Text}>Blog</span>
-            </a>
-          </li>
+          {menuItems.map(addMenuItem)}
         </ul>
       </div>
     </section>
