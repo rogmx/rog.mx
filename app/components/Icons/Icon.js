@@ -4,28 +4,28 @@ class Icon extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      color: '#fff'
+      color: this.props.color
     }
     this.mouseOver = this.mouseOver.bind(this)
     this.mouseOut = this.mouseOut.bind(this)
   }
 
   componentWillMount () {
-    this.setState({color: '#fff'})
+    this.setState({color: this.props.color})
   }
 
   mouseOver () {
-    this.setState({color: '#0091FF'})
+    this.setState({color: this.props.colorHover})
   }
 
   mouseOut () {
-    this.setState({color: '#fff'})
+    this.setState({color: this.props.color})
   }
 
   render () {
     return (
       <div onMouseEnter={this.mouseOver} onMouseLeave={this.mouseOut} >
-        <this.props.icon color={this.state.color} className={this.props.svgclass} />
+        <this.props.icon color={this.state.color} className={this.props.svgClass} />
       </div>
     )
   }
@@ -33,7 +33,8 @@ class Icon extends React.Component {
 
 Icon.propTypes = {
   color: React.PropTypes.string,
-  svgclass: React.PropTypes.string
+  colorHover: React.PropTypes.string,
+  svgClass: React.PropTypes.string
 }
 
 export default Icon

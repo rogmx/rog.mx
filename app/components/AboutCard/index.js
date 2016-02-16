@@ -22,17 +22,32 @@ function AboutCard () {
         <ul className={styles.AboutCard__SocialLinks__List}>
           <li className={styles.AboutCard__SocialLinks__List__Item}>
             <a className={styles.AboutCard__SocialLinks__Link} href='http://twitter.com/rog3r'>
-              <Icon icon={IconTwitter} svgclass={styles.AboutCard__SocialLinks__Link__Icon} />
+              <Icon
+                icon={IconTwitter}
+                color='#FFF'
+                colorHover='#0091FF'
+                svgClass={styles.AboutCard__SocialLinks__Link__Icon}
+              />
             </a>
           </li>
           <li className={styles.AboutCard__SocialLinks__List__Item}>
             <a className={styles.AboutCard__SocialLinks__Link} href='http://github.com/rogr'>
-              <Icon icon={IconGithub} svgclass={styles.AboutCard__SocialLinks__Link__Icon} />
+              <Icon
+                icon={IconGithub}
+                color='#FFF'
+                colorHover='#0091FF'
+                svgClass={styles.AboutCard__SocialLinks__Link__Icon}
+              />
             </a>
           </li>
           <li className={styles.AboutCard__SocialLinks__List__Item}>
             <a className={styles.AboutCard__SocialLinks__Link} href='http://last.fm/user/rog3r'>
-              <Icon icon={IconMusic} svgclass={styles.AboutCard__SocialLinks__Link__Icon} />
+              <Icon
+                icon={IconMusic}
+                color='#FFF'
+                colorHover='#0091FF'
+                svgClass={styles.AboutCard__SocialLinks__Link__Icon}
+              />
             </a>
           </li>
           <li className={styles.AboutCard__SocialLinks__List__Item}>
