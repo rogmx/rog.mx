@@ -1,4 +1,5 @@
 import React from 'react'
+import classNames from 'classnames'
 
 import styles from './styles.css'
 import Avatar from './images/me.png'
@@ -51,12 +52,18 @@ function addMenuItem (item, i) {
 
 function AboutCard () {
   return (
-    <section className={styles.AboutCard}>
+    <section className={classNames({
+      [styles.AboutCard]: true,
+      [styles['AboutCard--compact']]: true
+    })}>
       <div className={styles.AboutCard__Bio}>
         <img src={Avatar} className={styles.AboutCard__Bio__Avatar} />
         <div className={styles.AboutCard__Bio__Info}>
           <h2 className={styles.AboutCard__Bio__Info__Title}>Rogelio Alberto</h2>
           <p className={styles.AboutCard__Bio__Info__Subtitle}>Web Developer</p>
+        </div>
+        <div className={styles.AboutCard__Activity}>
+          <p>Hola</p>
         </div>
       </div>
       <div className={styles.AboutCard__SocialLinks}>

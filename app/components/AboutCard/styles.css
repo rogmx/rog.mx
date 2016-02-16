@@ -1,11 +1,14 @@
 .AboutCard {
   width: 450px;
-  height: 360px;
   overflow: auto;
   display: flex;
   flex-wrap: wrap;
-
   margin: 0 auto;
+
+  &--compact {
+    height: 460px;
+  }
+
   &__Bio {
     background: white;
     display: block;
