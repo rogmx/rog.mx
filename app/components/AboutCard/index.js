@@ -36,20 +36,20 @@ class AboutCard extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      theme: ''
+      compact: false
     }
     this.mouseOver = this.mouseOver.bind(this)
     this.addMenuItem = this.addMenuItem.bind(this)
   }
 
   mouseOver () {
-    console.log('Hola')
+    this.setState({compact: !this.state.compact})
   }
 
   addMenuItem (item, i) {
     return (
       <li key={i} className={styles.AboutCard__SocialLinks__List__Item}>
-        <a className={styles.AboutCard__SocialLinks__Link} href={item.link}>
+        <div onClick={this.mouseOver} className={styles.AboutCard__SocialLinks__Link} href={item.link}>
           {item.icon !== null
             ? <Icon
               icon={item.icon}
@@ -59,7 +59,7 @@ class AboutCard extends React.Component {
             />
             : <span className={styles.AboutCard__SocialLinks__Link__Text}>{item.title}</span>
           }
-        </a>
+        </div>
       </li>
     )
   }
@@ -68,7 +68,7 @@ class AboutCard extends React.Component {
     return (
       <section className={classNames({
         [styles.AboutCard]: true,
-        [styles['AboutCard--compact']]: true
+        [styles['AboutCard--compact']]: this.state.compact
       })}>
         <div className={styles.AboutCard__Bio}>
           <img src={Avatar} className={styles.AboutCard__Bio__Avatar} />
@@ -76,7 +76,10 @@ class AboutCard extends React.Component {
             <h2 className={styles.AboutCard__Bio__Info__Title}>Rogelio Alberto</h2>
             <p className={styles.AboutCard__Bio__Info__Subtitle}>Web Developer</p>
           </div>
-          <div className={styles.AboutCard__Activity}>
+          <div className={classNames({
+            [styles.AboutCard__Activity]: true,
+            [styles['AboutCard__Activity--show']]: this.state.compact
+          })}>
             <div className={styles.AboutCard__Activity__Separator}></div>
             <p>Hola</p>
           </div>

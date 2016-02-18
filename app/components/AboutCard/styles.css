@@ -1,5 +1,6 @@
 .AboutCard {
   width: 450px;
+  height: 360px;
   overflow: auto;
   display: flex;
   flex-wrap: wrap;
@@ -91,6 +92,10 @@
   }
 
   &__Activity {
+    display: none;
+    &--show {
+      display: block;
+    }
     &__Separator {
       width: 80%;
       margin: 0 auto;
