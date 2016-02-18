@@ -36,20 +36,25 @@ class AboutCard extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      compact: false
+      compact: false,
+      section: ''
     }
-    this.mouseOver = this.mouseOver.bind(this)
+    this.mouseClick = this.mouseClick.bind(this)
     this.addMenuItem = this.addMenuItem.bind(this)
   }
 
-  mouseOver () {
-    this.setState({compact: !this.state.compact})
+  mouseClick (section) {
+    const compact = (section === '' || this.state.section === '') ? !this.state.compact : this.state.compact
+    this.setState({
+      compact,
+      section
+    })
   }
 
   addMenuItem (item, i) {
     return (
       <li key={i} className={styles.AboutCard__SocialLinks__List__Item}>
-        <div onClick={this.mouseOver} className={styles.AboutCard__SocialLinks__Link} href={item.link}>
+        <div onClick={this.mouseClick.bind(null, item.title.toLowerCase())} className={styles.AboutCard__SocialLinks__Link} href={item.link}>
           {item.icon !== null
             ? <Icon
               icon={item.icon}
@@ -81,7 +86,10 @@ class AboutCard extends React.Component {
             [styles['AboutCard__Activity--show']]: this.state.compact
           })}>
             <div className={styles.AboutCard__Activity__Separator}></div>
-            <p>Hola</p>
+            <span
+              className={styles.AboutCard__Activity__Close}
+              onClick={this.mouseClick.bind(null, '')} />
+            <p>{this.state.section}</p>
           </div>
         </div>
         <div className={styles.AboutCard__SocialLinks}>

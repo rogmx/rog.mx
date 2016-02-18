@@ -93,6 +93,7 @@
 
   &__Activity {
     display: none;
+    position: relative;
     &--show {
       display: block;
     }
@@ -100,6 +101,22 @@
       width: 80%;
       margin: 0 auto;
       border-top: 1px solid #eee;
+    }
+    &__Close {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      color: #777;
+      font: 14px/100% arial, sans-serif;
+      text-decoration: none;
+      text-shadow: 0 1px 0 #fff;
+      cursor: pointer;
+      &:after {;
+        content: '×';
+      }
+      &:hover {
+        color: #000
+      }
     }
   }
 
