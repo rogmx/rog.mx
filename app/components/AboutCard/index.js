@@ -89,14 +89,32 @@ class AboutCard extends React.Component {
             <span
               className={styles.AboutCard__Activity__Close}
               onClick={this.mouseClick.bind(null, '')} />
+            <h3>» ./{this.state.section}</h3>
             <div className={styles.AboutCard__Activity__Log}>
-              <h3>{this.state.section}</h3>
-              <p>I fought the law and the law won. <span>8 hours ago.</span></p>
-              <p>I fought the law and the law won. <span>8 hours ago.</span></p>
-              <p>I fought the law and the law won. <span>8 hours ago.</span></p>
-              <p>I fought the law and the law won. <span>8 hours ago.</span></p>
-              <p>I fought the law and the law won. <span>8 hours ago.</span></p>
-              <p>I fought the law and the law won. <span>8 hours ago.</span></p>
+              <div className={styles.AboutCard__Activity__Log__Item}>
+                <p>Breaking rocks in the hot sun. Breaking rocks in the hot sun. I fought the law and the law won. I fought the law and the law won. I fought the law and.</p>
+                <span>8 hours ago.</span>
+              </div>
+              <div className={styles.AboutCard__Activity__Log__Item}>
+                <p>I fought the law and the law won.</p>
+                <span>8 hours ago.</span>
+              </div>
+              <div className={styles.AboutCard__Activity__Log__Item}>
+                <p>I fought the law and the law won.</p>
+                <span>8 hours ago.</span>
+              </div>
+              <div className={styles.AboutCard__Activity__Log__Item}>
+                <p>I fought the law and the law won.</p>
+                <span>8 hours ago.</span>
+              </div>
+              <div className={styles.AboutCard__Activity__Log__Item}>
+                <p>I fought the law and the law won.</p>
+                <span>8 hours ago.</span>
+              </div>
+              <div className={styles.AboutCard__Activity__Log__Item}>
+                <p>I fought the law and the law won.</p>
+                <span>8 hours ago.</span>
+              </div>
             </div>
           </div>
         </div>
