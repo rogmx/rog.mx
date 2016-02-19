@@ -89,7 +89,15 @@ class AboutCard extends React.Component {
             <span
               className={styles.AboutCard__Activity__Close}
               onClick={this.mouseClick.bind(null, '')} />
-            <p>{this.state.section}</p>
+            <div className={styles.AboutCard__Activity__Log}>
+              <h3>{this.state.section}</h3>
+              <p>I fought the law and the law won. <span>8 hours ago.</span></p>
+              <p>I fought the law and the law won. <span>8 hours ago.</span></p>
+              <p>I fought the law and the law won. <span>8 hours ago.</span></p>
+              <p>I fought the law and the law won. <span>8 hours ago.</span></p>
+              <p>I fought the law and the law won. <span>8 hours ago.</span></p>
+              <p>I fought the law and the law won. <span>8 hours ago.</span></p>
+            </div>
           </div>
         </div>
         <div className={styles.AboutCard__SocialLinks}>
