@@ -5,7 +5,7 @@
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
-  transition: height .5s ease-in;
+  transition: height .4s ease-in;
 
   &--compact {
     height: 595px;
@@ -26,7 +26,7 @@
       border-top-right-radius: 2px;
     }
     &__Info {
-      padding: 12px 10px 5px 12px;
+      padding: 12px 10px 2px 12px;
       &__Title {
         font-size: 20px;
         font-weight: 300;
@@ -87,7 +87,8 @@
       }
 
       &__Icon {
-        width: 100%
+        width: 100%;
+        cursor: pointer;
       }
     }
   }
@@ -99,8 +100,13 @@
       display: block;
     }
     h3 {
-      font-weight: 300;
-      padding: 5px 8px 0 10px;
+      font-family: Courier;
+      font-size: 14px;
+      font-weight: 200;
+      color: #666;
+      padding: 3px 8px 3px 10px;
+      background-color: #fcfcfc;
+      margin: 0 0 4px 0;
     }
     &__Log {
       height: 200px;
@@ -150,14 +156,9 @@
         }
       }
     }
-    &__Separator {
-      width: 80%;
-      margin: 0 auto;
-      border-top: 1px solid #eee;
-    }
     &__Close {
       position: absolute;
-      top: 8px;
+      top: 7px;
       right: 3px;
       color: #777;
       font: 16px/100% arial, sans-serif;

@@ -32,6 +32,41 @@ const menuItems = [
   }
 ]
 
+const activityTwitter = [
+  {
+    content: 'Breaking rocks in the hot sun. Breaking rocks in the hot sun. I fought the law and the law won. I fought the law and the law won. I fought the law and.',
+    date: '8 hours ago.'
+  },
+  {
+    content: 'I fought the law and the law won. I fought the law and the law won.',
+    date: '8 hours ago.'
+  },
+  {
+    content: 'Breaking rocks in the hot sun. Breaking rocks in the hot sun. I fought the law and the law won. I fought the law and the law won. I fought the law and.',
+    date: '8 hours ago.'
+  },
+  {
+    content: 'I fought the law and the law won. I fought the law and the law won.',
+    date: '8 hours ago.'
+  },
+  {
+    content: 'I fought the law and the law won. I fought the law and the law won.',
+    date: '8 hours ago.'
+  },
+  {
+    content: 'I fought the law and the law won. I fought the law and the law won.',
+    date: '8 hours ago.'
+  },
+  {
+    content: 'I fought the law and the law won. I fought the law and the law won.',
+    date: '8 hours ago.'
+  },
+  {
+    content: 'I fought the law and the law won. I fought the law and the law won.',
+    date: '8 hours ago.'
+  }
+]
+
 class AboutCard extends React.Component {
   constructor (props) {
     super(props)
@@ -41,6 +76,7 @@ class AboutCard extends React.Component {
     }
     this.mouseClick = this.mouseClick.bind(this)
     this.addMenuItem = this.addMenuItem.bind(this)
+    this.addActivityItem = this.addActivityItem.bind(this)
   }
 
   mouseClick (section) {
@@ -57,15 +93,25 @@ class AboutCard extends React.Component {
         <div onClick={this.mouseClick.bind(null, item.title.toLowerCase())} className={styles.AboutCard__SocialLinks__Link} href={item.link}>
           {item.icon !== null
             ? <Icon
-              icon={item.icon}
-              color='#FFF'
-              colorHover='#0091FF'
-              svgClass={styles.AboutCard__SocialLinks__Link__Icon}
-            />
+                icon={item.icon}
+                color='#FFF'
+                colorHover='#0091FF'
+                active={this.state.section === item.title.toLowerCase()}
+                svgClass={styles.AboutCard__SocialLinks__Link__Icon}
+              />
             : <span className={styles.AboutCard__SocialLinks__Link__Text}>{item.title}</span>
           }
         </div>
       </li>
+    )
+  }
+
+  addActivityItem (item, i) {
+    return (
+      <div key={i} className={styles.AboutCard__Activity__Log__Item}>
+        <p>{item.content}</p>
+        <span>{item.date}</span>
+      </div>
     )
   }
 
@@ -81,42 +127,18 @@ class AboutCard extends React.Component {
             <h2 className={styles.AboutCard__Bio__Info__Title}>Rogelio Alberto</h2>
             <p className={styles.AboutCard__Bio__Info__Subtitle}>Web Developer</p>
           </div>
-          <div className={classNames({
-            [styles.AboutCard__Activity]: true,
-            [styles['AboutCard__Activity--show']]: this.state.compact
-          })}>
-            <div className={styles.AboutCard__Activity__Separator}></div>
-            <span
-              className={styles.AboutCard__Activity__Close}
-              onClick={this.mouseClick.bind(null, '')} />
-            <h3>» ./{this.state.section}</h3>
-            <div className={styles.AboutCard__Activity__Log}>
-              <div className={styles.AboutCard__Activity__Log__Item}>
-                <p>Breaking rocks in the hot sun. Breaking rocks in the hot sun. I fought the law and the law won. I fought the law and the law won. I fought the law and.</p>
-                <span>8 hours ago.</span>
+          {this.state.compact
+            ? <div className={classNames([styles.AboutCard__Activity, styles['AboutCard__Activity--show']])}>
+                <span
+                  className={styles.AboutCard__Activity__Close}
+                  onClick={this.mouseClick.bind(null, '')} />
+                <h3>» ./{this.state.section}</h3>
+                  <div className={styles.AboutCard__Activity__Log}>
+                    {activityTwitter.map(this.addActivityItem)}
+                  </div>
               </div>
-              <div className={styles.AboutCard__Activity__Log__Item}>
-                <p>I fought the law and the law won.</p>
-                <span>8 hours ago.</span>
-              </div>
-              <div className={styles.AboutCard__Activity__Log__Item}>
-                <p>I fought the law and the law won.</p>
-                <span>8 hours ago.</span>
-              </div>
-              <div className={styles.AboutCard__Activity__Log__Item}>
-                <p>I fought the law and the law won.</p>
-                <span>8 hours ago.</span>
-              </div>
-              <div className={styles.AboutCard__Activity__Log__Item}>
-                <p>I fought the law and the law won.</p>
-                <span>8 hours ago.</span>
-              </div>
-              <div className={styles.AboutCard__Activity__Log__Item}>
-                <p>I fought the law and the law won.</p>
-                <span>8 hours ago.</span>
-              </div>
-            </div>
-          </div>
+            : null
+          }
         </div>
         <div className={styles.AboutCard__SocialLinks}>
           <ul className={styles.AboutCard__SocialLinks__List}>

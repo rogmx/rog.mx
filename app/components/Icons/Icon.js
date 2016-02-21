@@ -4,7 +4,8 @@ class Icon extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      color: this.props.color
+      color: this.props.color,
+      active: this.props.active
     }
     this.mouseOver = this.mouseOver.bind(this)
     this.mouseOut = this.mouseOut.bind(this)
@@ -19,13 +20,16 @@ class Icon extends React.Component {
   }
 
   mouseOut () {
-    this.setState({color: this.props.color})
+    // this.setState({color: this.props.color})
   }
 
   render () {
     return (
       <div onMouseEnter={this.mouseOver} onMouseLeave={this.mouseOut} >
-        <this.props.icon color={this.state.color} className={this.props.svgClass} />
+        <this.props.icon
+          color={this.props.active ? this.props.colorHover : this.props.color}
+          className={this.props.svgClass}
+        />
       </div>
     )
   }
@@ -35,6 +39,7 @@ Icon.propTypes = {
   icon: React.PropTypes.func.isRequired,
   color: React.PropTypes.string,
   colorHover: React.PropTypes.string,
+  active: React.PropTypes.bool,
   svgClass: React.PropTypes.string
 }
 
