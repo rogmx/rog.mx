@@ -99,7 +99,13 @@ class AboutCard extends React.Component {
                 active={this.state.section === item.title.toLowerCase()}
                 svgClass={styles.AboutCard__SocialLinks__Link__Icon}
               />
-            : <span className={styles.AboutCard__SocialLinks__Link__Text}>{item.title}</span>
+            : <span
+                 className={classNames({
+                   [styles.AboutCard__SocialLinks__Link__Text]: true,
+                   [styles['AboutCard__SocialLinks__Link__Text--active']]: this.state.section === item.title.toLowerCase()
+                 })}>
+              {item.title}
+              </span>
           }
         </div>
       </li>

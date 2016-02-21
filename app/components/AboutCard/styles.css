@@ -76,19 +76,22 @@
       font-size: 12px;
       font-weight: 300;
       line-height: 12px;
-
-      :hover {
-        text-decoration: underline;
-      }
+      cursor: pointer;
 
       &__Text {
         padding: 3px 0;
         display: inline-block;
+        &:hover {
+          color: #0091FF;
+          text-decoration: underline;
+        }
+        &--active {
+          color: #0091FF;
+        }
       }
 
       &__Icon {
         width: 100%;
-        cursor: pointer;
       }
     }
   }
