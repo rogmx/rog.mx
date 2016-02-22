@@ -72,11 +72,65 @@ class AboutCard extends React.Component {
     super(props)
     this.state = {
       compact: false,
-      section: ''
+      section: '',
+      prompt: ''
     }
+    this.prompt = this.prompt.bind(this)
+    this.promptBlur = this.promptBlur.bind(this)
+    this.promptFocus = this.promptFocus.bind(this)
+    this.promptEnter = this.promptEnter.bind(this)
+    this.promptChange = this.promptChange.bind(this)
+
     this.mouseClick = this.mouseClick.bind(this)
     this.addMenuItem = this.addMenuItem.bind(this)
     this.addActivityItem = this.addActivityItem.bind(this)
+  }
+
+  static promptInterval = null
+
+  prompt (promptValue) {
+    let prompAux = ''
+    const prompInputText = './'
+
+    promptValue.split('').forEach((char, i) => {
+      window.setTimeout(() => {
+        prompAux += char
+        this.setState({prompt: prompInputText + prompAux})
+        if (i === promptValue.length - 1) {
+          this.promptFocus()
+        }
+      }, 200 * i)
+    })
+  }
+
+  promptFocus () {
+    const promptInput = this.refs.prompt
+    const promptCaret = this.refs.caret
+
+    promptInput.focus()
+    this.promptInterval = window.setInterval(() => {
+      if (promptCaret.style.visibility === 'visible') {
+        promptCaret.style.visibility = 'hidden'
+      } else {
+        promptCaret.style.visibility = 'visible'
+      }
+    }, 250)
+  }
+
+  promptBlur () {
+    const promptCaret = this.refs.caret
+    clearInterval(this.promptInterval)
+    promptCaret.style.visibility = 'visible'
+  }
+
+  promptChange () {
+    const promptInput = this.refs.prompt
+    this.setState({prompt: promptInput.value})
+  }
+
+  promptEnter (e) {
+    e.preventDefault()
+    console.log(this.state.prompt)
   }
 
   mouseClick (section) {
@@ -85,6 +139,7 @@ class AboutCard extends React.Component {
       compact,
       section
     })
+    this.prompt(section)
   }
 
   addMenuItem (item, i) {
@@ -138,10 +193,17 @@ class AboutCard extends React.Component {
                 <span
                   className={styles.AboutCard__Activity__Close}
                   onClick={this.mouseClick.bind(null, '')} />
-                <h3>» ./{this.state.section}</h3>
-                  <div className={styles.AboutCard__Activity__Log}>
-                    {activityTwitter.map(this.addActivityItem)}
+                <form className={styles.AboutCard__Prompt} onSubmit={this.promptEnter}>
+                  <div className={styles.AboutCard__Prompt__CMD} onClick={this.promptFocus}>
+                    <span className={styles.AboutCard__Prompt__Symbol}>»</span>
+                    <span className={styles.AboutCard__Prompt__Input}>{this.state.prompt}</span>
+                    <div ref='caret' className={styles.AboutCard__Prompt__Caret}></div>
                   </div>
+                  <input ref='prompt' type='text' value={this.state.prompt} onChange={this.promptChange} onBlur={this.promptBlur} />
+                </form>
+                <div className={styles.AboutCard__Activity__Log}>
+                  {activityTwitter.map(this.addActivityItem)}
+                </div>
               </div>
             : null
           }

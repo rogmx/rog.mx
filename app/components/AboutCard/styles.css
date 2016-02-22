@@ -81,6 +81,7 @@
       &__Text {
         padding: 3px 0;
         display: inline-block;
+        font-weight: 400;
         &:hover {
           color: #0091FF;
           text-decoration: underline;
@@ -96,23 +97,61 @@
     }
   }
 
+  &__Prompt {
+    font-family: Courier;
+    font-size: 14px;
+    font-weight: 200;
+    color: #dadada;
+    padding: 6px 0 0 0;
+    margin: 0 0 4px 0;
+    height: 30px;
+    background-color: #000;
+
+    &__Symbol {
+      float: left;
+      padding: 0 2px 0 5px;
+      color: #0091FF;
+      font-size: 18px;
+      position: relative;
+      top: -6px;
+    }
+    &__Input {
+      float: left;
+      padding-left: 3px;
+      white-space: pre;
+      position: relative;
+      top: -1px;
+    }
+
+    &__CMD {
+      font-family: courier;
+      font-size: 14px;
+      overflow: hidden;
+    }
+
+    &__Caret {
+      float: left;
+      margin-left: 1px;
+      width: 5px;
+      height: 18px;
+      background: #21f838;
+    }
+
+    input {
+      width: 0;
+      height: 0;
+      opacity: 0;
+    }
+  }
+
   &__Activity {
     display: none;
     position: relative;
     &--show {
       display: block;
     }
-    h3 {
-      font-family: Courier;
-      font-size: 14px;
-      font-weight: 200;
-      color: #666;
-      padding: 3px 8px 3px 10px;
-      background-color: #fcfcfc;
-      margin: 0 0 4px 0;
-    }
     &__Log {
-      height: 200px;
+      height: 202px;
       width: 99.5%;
       overflow-y: scroll;
       padding: 0 10px 5px 10px;
@@ -163,16 +202,15 @@
       position: absolute;
       top: 7px;
       right: 3px;
-      color: #777;
+      color: #aaa;
       font: 16px/100% arial, sans-serif;
       text-decoration: none;
-      text-shadow: 0 1px 0 #fff;
       cursor: pointer;
       &:after {;
         content: '×';
       }
       &:hover {
-        color: #000
+        color: #777
       }
     }
   }
