@@ -91,7 +91,7 @@ class AboutCard extends React.Component {
   prompt (promptValue) {
     let prompAux = ''
     const prompInputText = './'
-
+    clearInterval(this.promptInterval)
     promptValue.split('').forEach((char, i) => {
       window.setTimeout(() => {
         prompAux += char
@@ -130,7 +130,29 @@ class AboutCard extends React.Component {
 
   promptEnter (e) {
     e.preventDefault()
-    console.log(this.state.prompt)
+    const command = this.state.prompt.replace('./', '')
+    const promptActions = {
+      'exit': () => {
+        this.setState({compact: false, section: '', prompt: ''})
+      },
+      'twitter': () => {
+        console.log('Twitter!')
+      }
+    }
+
+    const promptNotFound = () => {
+      const tempPrompt = this.state.prompt
+      this.setState({prompt: 'Error: Command not found.'})
+      setTimeout(() => {
+        this.setState({prompt: tempPrompt})
+      }, 599)
+    }
+
+    if (promptActions.hasOwnProperty(command)) {
+      promptActions[command]()
+    } else {
+      promptNotFound()
+    }
   }
 
   mouseClick (section) {
