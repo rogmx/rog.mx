@@ -1,6 +1,8 @@
 import React from 'react'
 import classNames from 'classnames'
 
+import Prompt from '../Prompt'
+
 import styles from './styles.css'
 import Avatar from './images/me.png'
 
@@ -72,88 +74,12 @@ class AboutCard extends React.Component {
     super(props)
     this.state = {
       compact: false,
-      section: '',
-      prompt: '',
-      promptValid: true
+      section: ''
     }
-    this.prompt = this.prompt.bind(this)
-    this.promptBlur = this.promptBlur.bind(this)
-    this.promptFocus = this.promptFocus.bind(this)
-    this.promptEnter = this.promptEnter.bind(this)
-    this.promptChange = this.promptChange.bind(this)
 
     this.mouseClick = this.mouseClick.bind(this)
     this.addMenuItem = this.addMenuItem.bind(this)
     this.addActivityItem = this.addActivityItem.bind(this)
-  }
-
-  static promptInterval = null
-
-  prompt (promptValue) {
-    let prompAux = ''
-    const prompInputText = './'
-    clearInterval(this.promptInterval)
-    promptValue.split('').forEach((char, i) => {
-      window.setTimeout(() => {
-        prompAux += char
-        this.setState({prompt: prompInputText + prompAux})
-        if (i === promptValue.length - 1) {
-          this.promptFocus()
-        }
-      }, 200 * i)
-    })
-  }
-
-  promptFocus () {
-    const promptInput = this.refs.prompt
-    const promptCaret = this.refs.caret
-
-    promptInput.focus()
-    this.promptInterval = window.setInterval(() => {
-      if (promptCaret.style.visibility === 'visible') {
-        promptCaret.style.visibility = 'hidden'
-      } else {
-        promptCaret.style.visibility = 'visible'
-      }
-    }, 250)
-  }
-
-  promptBlur () {
-    const promptCaret = this.refs.caret
-    clearInterval(this.promptInterval)
-    promptCaret.style.visibility = 'visible'
-  }
-
-  promptChange () {
-    const promptInput = this.refs.prompt
-    this.setState({prompt: promptInput.value})
-  }
-
-  promptEnter (e) {
-    e.preventDefault()
-    const command = this.state.prompt.replace('./', '')
-    const promptActions = {
-      'exit': () => {
-        this.setState({compact: false, section: '', prompt: ''})
-      },
-      'twitter': () => {
-        console.log('Twitter!')
-      }
-    }
-
-    const promptNotFound = () => {
-      const tempPrompt = this.state.prompt
-      this.setState({prompt: 'Error: Command not found.', promptValid: false})
-      setTimeout(() => {
-        this.setState({prompt: tempPrompt, promptValid: true})
-      }, 666)
-    }
-
-    if (promptActions.hasOwnProperty(command)) {
-      promptActions[command]()
-    } else {
-      promptNotFound()
-    }
   }
 
   mouseClick (section) {
@@ -162,7 +88,6 @@ class AboutCard extends React.Component {
       compact,
       section
     })
-    this.prompt(section)
   }
 
   addMenuItem (item, i) {
@@ -216,17 +141,7 @@ class AboutCard extends React.Component {
                 <span
                   className={styles.AboutCard__Activity__Close}
                   onClick={this.mouseClick.bind(null, '')} />
-                <form className={styles.AboutCard__Prompt} onSubmit={this.promptEnter}>
-                  <div className={classNames({
-                    [styles.AboutCard__Prompt__CMD]: true,
-                    [styles['AboutCard__Prompt__CMD--error']]: !this.state.promptValid
-                  })} onClick={this.promptFocus}>
-                    <span className={styles.AboutCard__Prompt__Symbol}>»</span>
-                    <span className={styles.AboutCard__Prompt__CMD__Input}>{this.state.prompt}</span>
-                    <div ref='caret' className={styles.AboutCard__Prompt__CMD__Caret}></div>
-                  </div>
-                  <input ref='prompt' type='text' value={this.state.prompt} onChange={this.promptChange} onBlur={this.promptBlur} />
-                </form>
+                <Prompt prompt={this.state.section} />
                 <div className={styles.AboutCard__Activity__Log}>
                   {activityTwitter.map(this.addActivityItem)}
                 </div>
