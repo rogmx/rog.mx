@@ -73,7 +73,8 @@ class AboutCard extends React.Component {
     this.state = {
       compact: false,
       section: '',
-      prompt: ''
+      prompt: '',
+      promptValid: true
     }
     this.prompt = this.prompt.bind(this)
     this.promptBlur = this.promptBlur.bind(this)
@@ -142,10 +143,10 @@ class AboutCard extends React.Component {
 
     const promptNotFound = () => {
       const tempPrompt = this.state.prompt
-      this.setState({prompt: 'Error: Command not found.'})
+      this.setState({prompt: 'Error: Command not found.', promptValid: false})
       setTimeout(() => {
-        this.setState({prompt: tempPrompt})
-      }, 599)
+        this.setState({prompt: tempPrompt, promptValid: true})
+      }, 666)
     }
 
     if (promptActions.hasOwnProperty(command)) {
@@ -216,10 +217,13 @@ class AboutCard extends React.Component {
                   className={styles.AboutCard__Activity__Close}
                   onClick={this.mouseClick.bind(null, '')} />
                 <form className={styles.AboutCard__Prompt} onSubmit={this.promptEnter}>
-                  <div className={styles.AboutCard__Prompt__CMD} onClick={this.promptFocus}>
+                  <div className={classNames({
+                    [styles.AboutCard__Prompt__CMD]: true,
+                    [styles['AboutCard__Prompt__CMD--error']]: !this.state.promptValid
+                  })} onClick={this.promptFocus}>
                     <span className={styles.AboutCard__Prompt__Symbol}>»</span>
-                    <span className={styles.AboutCard__Prompt__Input}>{this.state.prompt}</span>
-                    <div ref='caret' className={styles.AboutCard__Prompt__Caret}></div>
+                    <span className={styles.AboutCard__Prompt__CMD__Input}>{this.state.prompt}</span>
+                    <div ref='caret' className={styles.AboutCard__Prompt__CMD__Caret}></div>
                   </div>
                   <input ref='prompt' type='text' value={this.state.prompt} onChange={this.promptChange} onBlur={this.promptBlur} />
                 </form>
