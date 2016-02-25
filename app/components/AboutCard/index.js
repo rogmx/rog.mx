@@ -88,6 +88,8 @@ class AboutCard extends React.Component {
       compact,
       section
     })
+    console.log(section)
+    console.log(this.state.section)
   }
 
   addMenuItem (item, i) {
@@ -138,10 +140,8 @@ class AboutCard extends React.Component {
           </div>
           {this.state.compact
             ? <div className={classNames([styles.AboutCard__Activity, styles['AboutCard__Activity--show']])}>
-                <span
-                  className={styles.AboutCard__Activity__Close}
-                  onClick={this.mouseClick.bind(null, '')} />
-                <Prompt prompt={this.state.section} />
+                <span className={styles.AboutCard__Activity__Close} onClick={this.mouseClick.bind(null, '')} />
+                <Prompt command={this.state.section} />
                 <div className={styles.AboutCard__Activity__Log}>
                   {activityTwitter.map(this.addActivityItem)}
                 </div>

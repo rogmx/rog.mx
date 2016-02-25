@@ -7,7 +7,7 @@ class Prompt extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
-      prompt: this.props.prompt,
+      prompt: '',
       promptValid: true
     }
     this.prompt = this.prompt.bind(this)
@@ -20,7 +20,12 @@ class Prompt extends React.Component {
   static promptInterval = null
 
   componentWillMount () {
-    this.prompt(this.props.prompt)
+    this.setState({prompt: this.props.command})
+    this.prompt(this.props.command)
+  }
+
+  componentWillReceiveProps (nextProps) {
+    this.prompt(nextProps.command)
   }
 
   prompt (promptValue) {
@@ -94,14 +99,14 @@ class Prompt extends React.Component {
     }
   }
 
-  mouseClick (section) {
+  /* mouseClick (section) {
     const compact = (section === '' || this.state.section === '') ? !this.state.compact : this.state.compact
     this.setState({
       compact,
       section
     })
     this.prompt(section)
-  }
+  } */
 
   render () {
     return (
@@ -121,7 +126,7 @@ class Prompt extends React.Component {
 }
 
 Prompt.propTypes = {
-  prompt: React.PropTypes.string
+  command: React.PropTypes.string
 }
 
 export default Prompt
