@@ -84,12 +84,14 @@ class AboutCard extends React.Component {
 
   mouseClick (section) {
     const compact = (section === '' || this.state.section === '') ? !this.state.compact : this.state.compact
-    this.setState({
-      compact,
-      section
-    })
-    console.log(section)
-    console.log(this.state.section)
+    if (section === this.state.section) {
+      this.setState({compact})
+    } else {
+      this.setState({
+        compact,
+        section
+      })
+    }
   }
 
   addMenuItem (item, i) {

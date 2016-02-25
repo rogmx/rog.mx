@@ -20,14 +20,14 @@ class Icon extends React.Component {
   }
 
   mouseOut () {
-    // this.setState({color: this.props.color})
+    this.setState({color: this.props.color})
   }
 
   render () {
     return (
       <div onMouseEnter={this.mouseOver} onMouseLeave={this.mouseOut} >
         <this.props.icon
-          color={this.props.active ? this.props.colorHover : this.props.color}
+          color={this.props.active ? this.props.colorHover : this.state.color}
           className={this.props.svgClass}
         />
       </div>
