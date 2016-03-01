@@ -35,6 +35,7 @@ class Prompt extends React.Component {
   prompt (promptValue) {
     let prompAux = ''
     const prompInputText = './'
+
     clearInterval(this.promptInterval)
     promptValue.split('').forEach((char, i) => {
       window.setTimeout(() => {
@@ -65,6 +66,7 @@ class Prompt extends React.Component {
 
   promptBlur () {
     const promptCaret = this.refs.caret
+
     clearInterval(this.promptInterval)
     promptCaret.style.visibility = 'visible'
     promptCaret.style.backgroundColor = '#262626'
@@ -85,6 +87,15 @@ class Prompt extends React.Component {
       },
       'twitter': () => {
         console.log('Twitter!')
+      },
+      'github': () => {
+        console.log('Github!')
+      },
+      'music': () => {
+        console.log('Music!')
+      },
+      'blog': () => {
+        console.log('Blog!')
       }
     }
 
@@ -102,15 +113,6 @@ class Prompt extends React.Component {
       promptNotFound()
     }
   }
-
-  /* mouseClick (section) {
-    const compact = (section === '' || this.state.section === '') ? !this.state.compact : this.state.compact
-    this.setState({
-      compact,
-      section
-    })
-    this.prompt(section)
-  } */
 
   render () {
     return (
