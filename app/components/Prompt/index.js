@@ -25,6 +25,10 @@ class Prompt extends React.Component {
   }
 
   componentWillReceiveProps (nextProps) {
+    const promptCaret = this.refs.caret
+    promptCaret.style.backgroundColor = '#0091FF'
+    promptCaret.style.border = 'none'
+
     this.prompt(nextProps.command)
   }
 
