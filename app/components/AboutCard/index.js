@@ -2,6 +2,7 @@ import React from 'react'
 import classNames from 'classnames'
 
 import Prompt from '../Prompt'
+import ActivityLog from '../ActivityLog'
 
 import styles from './styles.css'
 import Avatar from './images/me.png'
@@ -34,41 +35,6 @@ const menuItems = [
   }
 ]
 
-const activityTwitter = [
-  {
-    content: 'Breaking rocks in the hot sun. Breaking rocks in the hot sun. I fought the law and the law won. I fought the law and the law won. I fought the law and.',
-    date: '8 hours ago.'
-  },
-  {
-    content: 'I fought the law and the law won. I fought the law and the law won.',
-    date: '8 hours ago.'
-  },
-  {
-    content: 'Breaking rocks in the hot sun. Breaking rocks in the hot sun. I fought the law and the law won. I fought the law and the law won. I fought the law and.',
-    date: '8 hours ago.'
-  },
-  {
-    content: 'I fought the law and the law won. I fought the law and the law won.',
-    date: '8 hours ago.'
-  },
-  {
-    content: 'I fought the law and the law won. I fought the law and the law won.',
-    date: '8 hours ago.'
-  },
-  {
-    content: 'I fought the law and the law won. I fought the law and the law won.',
-    date: '8 hours ago.'
-  },
-  {
-    content: 'I fought the law and the law won. I fought the law and the law won.',
-    date: '8 hours ago.'
-  },
-  {
-    content: 'I fought the law and the law won. I fought the law and the law won.',
-    date: '8 hours ago.'
-  }
-]
-
 class AboutCard extends React.Component {
   constructor (props) {
     super(props)
@@ -79,7 +45,6 @@ class AboutCard extends React.Component {
 
     this.mouseClick = this.mouseClick.bind(this)
     this.addMenuItem = this.addMenuItem.bind(this)
-    this.addActivityItem = this.addActivityItem.bind(this)
   }
 
   mouseClick (section) {
@@ -119,15 +84,6 @@ class AboutCard extends React.Component {
     )
   }
 
-  addActivityItem (item, i) {
-    return (
-      <div key={i} className={styles.AboutCard__Activity__Log__Item}>
-        <p>{item.content}</p>
-        <span>{item.date}</span>
-      </div>
-    )
-  }
-
   render () {
     return (
       <section className={classNames({
@@ -144,9 +100,7 @@ class AboutCard extends React.Component {
             ? <div className={classNames([styles.AboutCard__Activity, styles['AboutCard__Activity--show']])}>
                 <span className={styles.AboutCard__Activity__Close} onClick={this.mouseClick.bind(null, '')} />
                 <Prompt command={this.state.section} />
-                <div className={styles.AboutCard__Activity__Log}>
-                  {activityTwitter.map(this.addActivityItem)}
-                </div>
+                <ActivityLog section={this.state.section} />
               </div>
             : null
           }
