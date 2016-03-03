@@ -7,22 +7,20 @@ import { shallow, mount } from 'enzyme'
 import React from 'react'
 
 import { NotFound } from './index'
-import H1 from 'components/H1'
-import Button from 'components/Button'
 
 describe('<NotFound />', () => {
   it('should render the Page Not Found text', () => {
     const renderedComponent = shallow(
       <NotFound />
     )
-    expect(renderedComponent.contains(<H1>Page not found.</H1>)).toEqual(true)
+    expect(renderedComponent.contains(<h1>Page not found.</h1>)).toEqual(true)
   })
 
   it('should render a button', () => {
     const renderedComponent = shallow(
       <NotFound />
     )
-    const renderedButton = renderedComponent.find(Button)
+    const renderedButton = renderedComponent.find('button')
     expect(renderedButton.length).toEqual(1)
   })
 

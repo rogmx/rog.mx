@@ -17,9 +17,9 @@
     background-image: -webkit-gradient(linear,
       left bottom,
       left top,
-      color-stop(0.34, rgb(70, 70, 70)),
-      color-stop(0.52, rgb(50, 50, 50)),
-      color-stop(0.76, rgb(30, 30, 30)));
+      color-stop(0.34, rgb(55, 55, 55)),
+      color-stop(0.49, rgb(40, 40, 40)),
+      color-stop(0.71, rgb(30, 30, 30)));
   }
   &__Item {
     padding: 5px 0;

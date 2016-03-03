@@ -8,34 +8,31 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { push } from 'react-router-redux'
 
-import Button from 'components/Button'
-import H1 from 'components/H1'
-
-export function NotFound(props) {
+export function NotFound (props) {
   return (
     <article>
-      <H1>Page not found.</H1>
-      <Button
+      <h1>Page not found.</h1>
+      <button
         handleRoute={
-          function redirect() {
+          function redirect () {
             props.changeRoute('/')
           }
         }
       >
       Home
-      </Button>
+    </button>
     </article>
   )
 }
 
 NotFound.propTypes = {
-  changeRoute: React.PropTypes.func,
+  changeRoute: React.PropTypes.func
 }
 
 // react-redux stuff
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps (dispatch) {
   return {
-    changeRoute: (url) => dispatch(push(url)),
+    changeRoute: (url) => dispatch(push(url))
   }
 }
 
