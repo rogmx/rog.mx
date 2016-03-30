@@ -37,12 +37,40 @@ const activityTwitter = [
   }
 ]
 
+const activityGithub = [
+  {
+    content: 'Pushed two commits to rog3r.',
+    date: '8 hours ago.'
+  },
+  {
+    content: 'Merge branch bugs to master.',
+    date: '8 hours ago.'
+  },
+  {
+    content: 'Pushed two commits to react-example',
+    date: '8 hours ago.'
+  },
+  {
+    content: 'Pushed two commits to rog3r.',
+    date: '8 hours ago.'
+  },
+  {
+    content: 'Merge branch bugs to master.',
+    date: '8 hours ago.'
+  },
+  {
+    content: 'Pushed two commits to react-example',
+    date: '8 hours ago.'
+  }
+]
+
 class ActivityLog extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
       section: ''
     }
+    this.getActivity = this.getActivity.bind(this)
     this.addActivityItem = this.addActivityItem.bind(this)
   }
 
@@ -61,10 +89,21 @@ class ActivityLog extends React.Component {
     )
   }
 
+  getActivity (section) {
+    let activity = null
+    const activitySources = {
+      'twitter': activityTwitter,
+      'github': activityGithub
+    }
+
+    activity = activitySources.hasOwnProperty(section) ? activitySources[section] : []
+    return activity
+  }
+
   render () {
     return (
       <div className={styles.ActivityLog}>
-        {activityTwitter.map(this.addActivityItem)}
+        {this.getActivity(this.props.section).map(this.addActivityItem)}
       </div>
     )
   }
