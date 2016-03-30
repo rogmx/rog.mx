@@ -15,6 +15,7 @@ class Prompt extends React.Component {
     this.promptFocus = this.promptFocus.bind(this)
     this.promptEnter = this.promptEnter.bind(this)
     this.promptChange = this.promptChange.bind(this)
+    this.promptKeyStroke = this.promptKeyStroke.bind(this)
   }
 
   static promptInterval = null
@@ -73,14 +74,28 @@ class Prompt extends React.Component {
     promptCaret.style.border = '1px solid #fff'
   }
 
-  promptChange () {
+  promptChange (e) {
     const promptInput = this.refs.prompt
     this.setState({prompt: promptInput.value})
   }
 
+  promptKeyStroke (e) {
+    e = e || window.event
+    const key = e.keyCode
+    const arrows = [38, 40, 37, 39]
+    if (arrows.indexOf(key) > -1) {
+      e.preventDefault()
+    }
+  }
+
   promptEnter (e) {
     e.preventDefault()
-    const command = this.state.prompt.replace('./', '')
+    let promptValue = this.state.prompt.replace(/^\s+|\s+$/g, '').replace(' ', '-').toLowerCase()
+    this.setState({prompt: promptValue})
+
+    let command = promptValue.replace('./', '')
+    command = command.indexOf('bowie') > -1 ? 'bowie' : command
+
     const promptActions = {
       'exit': () => {
         this.setState({compact: false, section: '', prompt: ''})
@@ -96,6 +111,12 @@ class Prompt extends React.Component {
       },
       'blog': () => {
         console.log('Blog!')
+      },
+      'otis': () => {
+        console.log('Auuuuu uh! uuuh! uuuh!')
+      },
+      'bowie': () => {
+        console.log('Wham Bam Thank You Mam!')
       }
     }
 
@@ -125,7 +146,7 @@ class Prompt extends React.Component {
           <span className={styles.Prompt__CMD__Input}>{this.state.prompt}</span>
           <div ref='caret' className={styles.Prompt__CMD__Caret}></div>
         </div>
-        <input ref='prompt' type='text' value={this.state.prompt} onChange={this.promptChange} onBlur={this.promptBlur} />
+        <input ref='prompt' type='text' value={this.state.prompt} onChange={this.promptChange} onBlur={this.promptBlur} onKeyDown={this.promptKeyStroke} />
       </form>
     )
   }
