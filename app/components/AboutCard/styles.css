@@ -60,12 +60,13 @@
 
     &__List {
       max-width: 100%;
-      width: 100%;
+      width: 60%;
       text-align: center;
       list-style-type: none;
-      padding: 0 30% 5px 30%;
+      padding: 0;
+      margin: 0 auto 7px auto;
       &__Item {
-        margin: 5px 0;
+        margin: 4px 0;
         display: inline-flex;
       }
     }
@@ -79,9 +80,11 @@
       cursor: pointer;
 
       &__Text {
-        padding: 3px 0;
+        padding: 1px;
         display: inline-block;
-        font-weight: 400;
+        font-size: 12px;
+        font-weight: 100;
+        font-family: 'Share Tech Mono', Courier;
         &:hover {
           color: #0091FF;
           text-decoration: underline;
@@ -92,7 +95,7 @@
       }
 
       &__Icon {
-        width: 100%;
+        width: 72%;
       }
     }
   }
