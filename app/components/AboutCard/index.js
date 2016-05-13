@@ -6,6 +6,7 @@ import ActivityLog from '../ActivityLog'
 
 import styles from './styles.css'
 import Avatar from './images/me.png'
+import Logo from '../Icons/Logo'
 
 import Icon from '../Icons/Icon'
 import IconTwitter from '../Icons/twitter'
@@ -61,20 +62,20 @@ class AboutCard extends React.Component {
 
   addMenuItem (item, i) {
     return (
-      <li key={i} className={styles.AboutCard__SocialLinks__List__Item}>
-        <div onClick={this.mouseClick.bind(null, item.title.toLowerCase())} className={styles.AboutCard__SocialLinks__Link} href={item.link}>
+      <li key={i} className={styles.AboutCard__Sidebar__SocialLinks__Item}>
+        <div onClick={this.mouseClick.bind(null, item.title.toLowerCase())} className={styles.AboutCard__Sidebar__Link} href={item.link}>
           {item.icon !== null
             ? <Icon
                 icon={item.icon}
                 color='#FFF'
                 colorHover='#0091FF'
                 active={this.state.section === item.title.toLowerCase()}
-                svgClass={styles.AboutCard__SocialLinks__Link__Icon}
+                svgClass={styles.AboutCard__Sidebar__Link__Icon}
               />
             : <span
                  className={classNames({
-                   [styles.AboutCard__SocialLinks__Link__Text]: true,
-                   [styles['AboutCard__SocialLinks__Link__Text--active']]: this.state.section === item.title.toLowerCase()
+                   [styles.AboutCard__Sidebar__Link__Text]: true,
+                   [styles['AboutCard__Sidebar__Link__Text--active']]: this.state.section === item.title.toLowerCase()
                  })}>
               {item.title}
               </span>
@@ -105,8 +106,9 @@ class AboutCard extends React.Component {
             : null
           }
         </div>
-        <div className={styles.AboutCard__SocialLinks}>
-          <ul className={styles.AboutCard__SocialLinks__List}>
+        <div className={styles.AboutCard__Sidebar}>
+          <Logo className={styles.AboutCard__Sidebar__Logo} />
+          <ul className={styles.AboutCard__Sidebar__SocialLinks}>
             {menuItems.map(this.addMenuItem)}
           </ul>
         </div>
