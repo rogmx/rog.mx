@@ -108,9 +108,11 @@ class AboutCard extends React.Component {
         </div>
         <div className={styles.AboutCard__Sidebar}>
           <Logo className={styles.AboutCard__Sidebar__Logo} />
-          <ul className={styles.AboutCard__Sidebar__SocialLinks}>
-            {menuItems.map(this.addMenuItem)}
-          </ul>
+          <div className={styles.AboutCard__Sidebar__SocialLinks__Wrapper}>
+            <ul className={styles.AboutCard__Sidebar__SocialLinks}>
+              {menuItems.map(this.addMenuItem)}
+            </ul>
+          </div>
         </div>
       </section>
     )

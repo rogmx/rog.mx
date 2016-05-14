@@ -57,6 +57,8 @@
     &__Logo {
       margin: 10px auto 0 auto;
       width: 60%;
+      height: 175px;
+      flex-flow: row nowrap;
       svg {
         width: 33px;
         margin: 0 auto;
@@ -64,13 +66,22 @@
     }
 
     &__SocialLinks {
-      max-width: 150px;
-      width: 60%;
       text-align: center;
       list-style-type: none;
       padding: 0;
-      margin: 55px auto 7px auto;
-      position: relative;;
+      position: relative;
+
+      &__Wrapper{
+        height: calc(100% - 194px);
+        min-height: 150px;
+        line-height: 0;
+        width: 35px;
+        display: flex;
+        box-sizing: border-box;
+        margin: 0 auto;
+        flex-direction: column-reverse;
+      }
+
       &__Item {
         margin: 4px 0;
         display: inline-flex;
