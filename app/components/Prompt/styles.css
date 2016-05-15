@@ -30,7 +30,7 @@
       top: -1px;
     }
 
-    &_Caret {
+    &__Caret {
       float: left;
       margin-left: 1px;
       width: 5px;

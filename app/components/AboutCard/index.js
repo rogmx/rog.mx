@@ -95,7 +95,7 @@ class AboutCard extends React.Component {
           <img src={Avatar} className={styles.AboutCard__Bio__Avatar} />
           <div className={styles.AboutCard__Bio__Info}>
             <h2 className={styles.AboutCard__Bio__Info__Title}>Rogelio Alberto</h2>
-            <p className={styles.AboutCard__Bio__Info__Subtitle}>Web Developer</p>
+            <p className={styles.AboutCard__Bio__Info__Subtitle}>Webmaster</p>
           </div>
           {this.state.compact
             ? <div className={classNames([styles.AboutCard__Activity, styles['AboutCard__Activity--show']])}>
