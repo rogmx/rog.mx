@@ -55,7 +55,7 @@
     border-bottom-left-radius: 2px;
 
     &__Logo {
-      margin: 10px auto 0 auto;
+      margin: 5px auto 0 auto;
       width: 60%;
       height: 175px;
       flex-flow: row nowrap;
@@ -72,10 +72,10 @@
       position: relative;
 
       &__Wrapper{
-        height: calc(100% - 194px);
+        height: calc(100% - 189px);
         min-height: 150px;
         line-height: 0;
-        width: 35px;
+        width: 32px;
         display: flex;
         box-sizing: border-box;
         margin: 0 auto;
