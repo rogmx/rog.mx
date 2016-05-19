@@ -11,6 +11,21 @@
     height: 595px;
   }
 
+  &__Logo {
+    margin: 5px auto 0 auto;
+    width: 60%;
+    height: 175px;
+    flex-flow: row nowrap;
+    svg {
+      width: 33px;
+      margin: 0 auto;
+    }
+    &__Letter {
+      fill-opacity: 0;
+      stroke: none;
+    }
+  }
+
   &__Bio {
     background: white;
     display: block;
@@ -53,17 +68,6 @@
     background-position: center 7%;
     border-top-left-radius: 2px;
     border-bottom-left-radius: 2px;
-
-    &__Logo {
-      margin: 5px auto 0 auto;
-      width: 60%;
-      height: 175px;
-      flex-flow: row nowrap;
-      svg {
-        width: 33px;
-        margin: 0 auto;
-      }
-    }
 
     &__SocialLinks {
       text-align: center;
@@ -140,5 +144,4 @@
       }
     }
   }
-
 }
