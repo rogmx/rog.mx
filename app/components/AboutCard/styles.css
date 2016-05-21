@@ -21,8 +21,13 @@
       margin: 0 auto;
     }
     &__Letter {
-      fill-opacity: 0;
-      stroke: none;
+      fill-opacity: 1;
+      path {
+        transition: fill-opacity .4s linear;
+      }
+      &--animated{
+        fill-opacity: 0;
+      }
     }
   }
 

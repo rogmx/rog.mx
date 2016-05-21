@@ -107,7 +107,11 @@ class AboutCard extends React.Component {
           }
         </div>
         <div className={styles.AboutCard__Sidebar}>
-          <Logo className={styles.AboutCard__Logo} classLetter={styles.AboutCard__Logo__Letter} />
+          <Logo
+            className={styles.AboutCard__Logo}
+            classLetter={styles.AboutCard__Logo__Letter}
+            classLetterAnimated={styles['AboutCard__Logo__Letter--animated']}
+          />
           <div className={styles.AboutCard__Sidebar__SocialLinks__Wrapper}>
             <ul className={styles.AboutCard__Sidebar__SocialLinks}>
               {menuItems.map(this.addMenuItem)}
