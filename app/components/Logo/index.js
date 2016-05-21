@@ -1,21 +1,23 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import classNames from 'classnames'
 
+import styles from './styles.css'
+
 class Logo extends React.Component {
+  static propTypes = {
+    className: PropTypes.string,
+    classLetter: PropTypes.string,
+    classLetterAnimated: PropTypes.string
+  }
+
   constructor (props) {
     super(props)
     this.state = {
-      color: this.props.color,
-      active: this.props.active,
       animated: false,
       logoInterval: null
     }
     this.mouseOver = this.mouseOver.bind(this)
     this.mouseOut = this.mouseOut.bind(this)
-  }
-
-  componentWillMount () {
-    this.setState({color: this.props.color})
   }
 
   componentDidMount () {
@@ -62,7 +64,7 @@ class Logo extends React.Component {
 
   render () {
     return (
-      <div className={this.props.className} onMouseEnter={this.mouseOver} onMouseLeave={this.mouseOut} >
+      <div className={styles.Logo} onMouseEnter={this.mouseOver} onMouseLeave={this.mouseOut} >
         <svg
           id={'logo-rogmx'}
           xmlns='http://www.w3.org/2000/svg'
@@ -72,16 +74,16 @@ class Logo extends React.Component {
             <path fill={'#010101'} stroke={'#010101'} d='M17.09 24.7h6.27V31h-6.27v-6.3zm14.57 0h6.27V31h-6.27v-6.3z'/>
           </g>
           <g id={'letter-r'} className={classNames({
-            [this.props.classLetter]: true,
-            [this.props.classLetterAnimated]: this.state.animated
+            [styles.Logo__Letter]: true,
+            [styles['Logo__Letter--animated']]: this.state.animated
           })} fill={'#0091FF'} stroke={'#000'} strokeWidth={'1px'} strokeOpacity={'.7'}>
             <path className={'path-animate'} d='M15.27 294.78a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.39-.58zm4.9 0a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.38-.58zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.38-.58zm4.9-4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.38-.58zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.38-.58zm4.9-4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.42-.58zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.42-.58zm4.9-4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.37-.58zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.37-.58zm4.9-4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.37-.58zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.37-.58z'/>
             <path className={'path-animate'} d='M15.27 285a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.39-.58zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.39-.6zM30 285a2 2 0 1 1-1.39.58A1.9 1.9 0 0 1 30 285zm0 4.9a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.39-.6z'/>
             <path className={'path-animate'} d='M15.27 275.2a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.39-.58zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.39-.59zm4.9-9.79a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.38-.59zm0 4.9a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.38-.59zm4.9 0a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.38-.59zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.38-.6zm4.9 0a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.42-.6zm4.9-4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.37-.59zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.37-.6zm4.9-9.79a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.37-.6zm0 4.9a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.37-.6z'/>
           </g>
           <g id={'letter-o'} className={classNames({
-            [this.props.classLetter]: true,
-            [this.props.classLetterAnimated]: this.state.animated
+            [styles.Logo__Letter]: true,
+            [styles['Logo__Letter--animated']]: this.state.animated
           })} fill={'#0091FF'} stroke={'#000'} strokeWidth={'1px'} strokeOpacity={'.7'}>
             <path className={'path-animate'} d='M15.27 256.57a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.39-.58zm4.9 0a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.38-.58zm0 4.9a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.38-.58zm4.9-4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.38-.58zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.38-.58zm4.9-4.9a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.42-.58zm0 4.9a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.42-.58zm4.9-4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.37-.58zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.37-.58zm4.9-4.9a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.37-.58z'/>
             <path className={'path-animate'} d='M15.27 246.78a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.39-.58zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.39-.58zm24.48-4.9a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.39-.58zm0 4.9a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.39-.58z'/>
@@ -89,16 +91,22 @@ class Logo extends React.Component {
             <path className={'path-animate'} d='M20.16 232.09a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.39-.58zm4.9 0a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.39-.58zm4.9 0a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.43-.58zm4.9 0a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.38-.58z'/>
           </g>
           <g id={'letter-g'} className={classNames({
-            [this.props.classLetter]: true,
-            [this.props.classLetterAnimated]: this.state.animated
+            [styles.Logo__Letter]: true,
+            [styles['Logo__Letter--animated']]: this.state.animated
           })} fill={'#0091FF'} stroke={'#000'} strokeWidth={'1px'} strokeOpacity={'.7'}>
             <path className={'path-animate'} d='M15.27 218.36a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.39-.58zm4.9 0a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.38-.58zm0 4.9a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.38-.58zm4.9-4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.38-.58zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.38-.58zm4.9-4.9a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.42-.58zm0 4.9a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.42-.58zm4.9-4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.37-.58zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.37-.58zm4.9-4.9a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.37-.58z'/>
             <path className={'path-animate'} d='M15.27 208.57a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.39-.58zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.39-.58zm24.48-4.9a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.39-.58zm0 4.9a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.39-.58z'/>
             <path className={'path-animate'} d='M15.27 198.78a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.39-.58zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.39-.58zm14.73-9.8a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.39-.58zm0 4.9a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.39-.58zm0 4.9a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.39-.58zm4.9-9.79a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.34-.59zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.34-.59zm4.9 0a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.34-.59zm0 4.9a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.34-.59z'/>
           </g>
+          <g id={'letter-dot'} className={classNames({
+            [styles.Logo__Letter]: true,
+            [styles['Logo__Letter--animated']]: this.state.animated
+          })}>
+            <path className={'path-animate'} fill={'#FFF'} d='M30.67 185h-7.15v-7.13h7.15V185zm-2.42-2.42v-2.28h-2.3v2.28h2.3z'/>
+          </g>
           <g id={'letter-m'} className={classNames({
-            [this.props.classLetter]: true,
-            [this.props.classLetterAnimated]: this.state.animated
+            [styles.Logo__Letter]: true,
+            [styles['Logo__Letter--animated']]: this.state.animated
           })} fill={'#0091FF'} stroke={'#000'} strokeWidth={'1px'} strokeOpacity={'.7'}>
             <path className={'path-animate'} d='M15.27 160.28a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.39-.58zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.39-.58zm4.9-4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.38-.58zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.38-.58zm4.9-4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.38-.58zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.38-.58zm4.9-4.9a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.42-.58zm0 4.9a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.42-.58zm4.9-4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.37-.58zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.37-.58zm4.9-4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.37-.58zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.37-.58z'/>
             <path className={'path-animate'} d='M15.27 150.49a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.39-.58zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.39-.59z'/>
@@ -107,33 +115,18 @@ class Logo extends React.Component {
             <path className={'path-animate'} d='M15.27 126a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.39-.58zm4.9-4.9a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.38-.57zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.38-.58zm4.9-4.9a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.38-.57zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.38-.58zm4.9-4.9a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.42-.57zm0 4.9a2 2 0 1 1-1.39.58A1.9 1.9 0 0 1 30 126zm4.9-4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.37-.57zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.37-.58zm4.9-4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.37-.57zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.37-.58z'/>
           </g>
           <g id={'letter-x'} className={classNames({
-            [this.props.classLetter]: true,
-            [this.props.classLetterAnimated]: this.state.animated
+            [styles.Logo__Letter]: true,
+            [styles['Logo__Letter--animated']]: this.state.animated
           })} fill={'#0091FF'} stroke={'#000'} strokeWidth={'1px'} strokeOpacity={'.7'}>
             <path className={'path-animate'} d='M15.27 107.38a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.39-.58zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.39-.58zm4.9-4.9a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.38-.58zm14.69 0a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.38-.58zm4.9 0a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.38-.58zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.38-.58z'/>
             <path className={'path-animate'} d='M20.16 102.49a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.39-.58zm4.9-4.9a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.39-.58zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.39-.58zm4.9-4.9a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.43-.58zm0 4.9a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.43-.58zm4.9 0a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.38-.58z'/>
             <path className={'path-animate'} d='M20.16 87.8a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.39-.58zm4.9 0a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.39-.58zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.39-.58zM30 87.8a2 2 0 1 1-1.39.58A1.9 1.9 0 0 1 30 87.8zm0 4.9a2 2 0 1 1-1.39.58A1.9 1.9 0 0 1 30 92.7zm4.9-4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.34-.58z'/>
             <path className={'path-animate'} d='M15.27 78a2 2 0 1 1-1.39.58 1.9 1.9 0 0 1 1.39-.58zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.39-.58zm4.9 0a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.38-.58zm14.69 0a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.38-.58zm4.9-4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.38-.58zm0 4.9a2 2 0 1 1-1.39.58 1.89 1.89 0 0 1 1.38-.58z'/>
           </g>
-          <g id={'letter-dot'} className={classNames({
-            [this.props.classLetter]: true,
-            [this.props.classLetterAnimated]: this.state.animated
-          })}>
-            <path className={'path-animate'} fill={'#FFF'} d='M30.67 185h-7.15v-7.13h7.15V185zm-2.42-2.42v-2.28h-2.3v2.28h2.3z'/>
-          </g>
         </svg>
       </div>
     )
   }
-}
-
-Logo.propTypes = {
-  color: React.PropTypes.string,
-  colorHover: React.PropTypes.string,
-  active: React.PropTypes.bool,
-  className: React.PropTypes.string,
-  classLetter: React.PropTypes.string,
-  classLetterAnimated: React.PropTypes.string
 }
 
 export default Logo

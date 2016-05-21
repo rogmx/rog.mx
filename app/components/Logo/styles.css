@@ -1,0 +1,19 @@
+.Logo {
+  margin: 5px auto 0 auto;
+  width: 60%;
+  height: 175px;
+  flex-flow: row nowrap;
+  svg {
+    width: 33px;
+    margin: 0 auto;
+  }
+  &__Letter {
+    fill-opacity: 1;
+    path {
+      transition: fill-opacity .4s linear;
+    }
+    &--animated{
+      fill-opacity: 0;
+    }
+  }
+}

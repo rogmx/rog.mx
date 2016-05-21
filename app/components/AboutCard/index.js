@@ -4,9 +4,9 @@ import classNames from 'classnames'
 import Prompt from '../Prompt'
 import ActivityLog from '../ActivityLog'
 
+import Logo from '../Logo'
 import styles from './styles.css'
 import Avatar from './images/me.png'
-import Logo from '../Icons/Logo'
 
 import Icon from '../Icons/Icon'
 import IconTwitter from '../Icons/twitter'
@@ -107,11 +107,7 @@ class AboutCard extends React.Component {
           }
         </div>
         <div className={styles.AboutCard__Sidebar}>
-          <Logo
-            className={styles.AboutCard__Logo}
-            classLetter={styles.AboutCard__Logo__Letter}
-            classLetterAnimated={styles['AboutCard__Logo__Letter--animated']}
-          />
+          <a href='#'><Logo /></a>
           <div className={styles.AboutCard__Sidebar__SocialLinks__Wrapper}>
             <ul className={styles.AboutCard__Sidebar__SocialLinks}>
               {menuItems.map(this.addMenuItem)}
