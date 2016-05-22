@@ -6,6 +6,9 @@
     "type": "git",
     "url": "git@github.com:rogr/rogmx.git"
   },
+  "engines" : {
+    "npm" : ">=3"
+  },
   "author": "Rogelio Alberto <i@rog.mx>",
   "license": "MIT",
   "scripts": {

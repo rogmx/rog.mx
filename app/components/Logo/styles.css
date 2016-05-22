@@ -1,11 +1,17 @@
 .Logo {
   margin: 5px auto 0 auto;
-  width: 60%;
+  width: 23px;
   height: 175px;
   flex-flow: row nowrap;
   svg {
-    width: 33px;
+    width: 23px;
     margin: 0 auto;
+  }
+  &__Invader {
+    fill-opacity: 1;
+    &--flip {
+      fill-opacity: 0;
+    }
   }
   &__Letter {
     fill-opacity: 1;
