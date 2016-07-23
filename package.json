@@ -11,7 +11,9 @@
   },
   "author": "Rogelio Alberto <i@rog.mx>",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --progress"
+  },
   "dependencies": {
     "preact": "^7.1.0",
     "preact-compat": "^3.0.0",
