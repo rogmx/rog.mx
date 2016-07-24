@@ -22,7 +22,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['', '.jsx', '.js', '.json', '.less'],
+    extensions: ['', '.jsx', '.js', '.json', '.scss'],
     modulesDirectories: [
       path.resolve(__dirname, 'src/lib'),
       path.resolve(__dirname, 'node_modules'),
@@ -47,21 +47,21 @@ module.exports = {
       exclude: /node_modules/,
       loader: 'babel-loader'
     }, {
-      // Transform our own .(less|css) files with PostCSS and CSS-modules
-      test: /\.(less|css)$/,
+      // Transform our own .(sass|css) files with PostCSS and CSS-modules
+      test: /\.(scss|css)$/,
       include: [path.resolve(__dirname, 'src/components')],
       loader: ExtractTextPlugin.extract('style?singleton', [
         `css-loader?modules&importLoaders=1&sourceMap=${CSS_MAPS}`,
         `postcss-loader`,
-        `less-loader?sourceMap=${CSS_MAPS}`
+        `sass-loader?sourceMap=${CSS_MAPS}`
       ].join('!'))
     }, {
-      test: /\.(less|css)$/,
+      test: /\.(scss|css)$/,
       exclude: [path.resolve(__dirname, 'src/components')],
       loader: ExtractTextPlugin.extract('style?singleton', [
         `css-loader?sourceMap=${CSS_MAPS}`,
         `postcss-loader`,
-        `less-loader?sourceMap=${CSS_MAPS}`
+        `sass-loader?sourceMap=${CSS_MAPS}`
       ].join('!'))
     }, {
       test: /\.json$/,

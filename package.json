@@ -83,7 +83,10 @@
       "fetch",
       "beforeEach",
       "afterEach",
-      "Response"
+      "Response",
+      "h",
+      "location",
+      "requestAnimationFrame"
     ]
   }
 }
