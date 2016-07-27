@@ -51,7 +51,7 @@ module.exports = {
       test: /\.(scss|css)$/,
       include: [path.resolve(__dirname, 'src/components')],
       loader: ExtractTextPlugin.extract('style?singleton', [
-        `css-loader?modules&importLoaders=1&sourceMap=${CSS_MAPS}`,
+        `css-loader?localIdentName=[local]__[hash:base64:5]&modules&importLoaders=1&sourceMap=${CSS_MAPS}`,
         `postcss-loader`,
         `sass-loader?sourceMap=${CSS_MAPS}`
       ].join('!'))
@@ -59,7 +59,7 @@ module.exports = {
       test: /\.(scss|css)$/,
       exclude: [path.resolve(__dirname, 'src/components')],
       loader: ExtractTextPlugin.extract('style?singleton', [
-        `css-loader?sourceMap=${CSS_MAPS}`,
+        `css-loader?localIdentName=[local]__[hash:base64:5]&sourceMap=${CSS_MAPS}`,
         `postcss-loader`,
         `sass-loader?sourceMap=${CSS_MAPS}`
       ].join('!'))
