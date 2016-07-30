@@ -1,0 +1,30 @@
+/* Global styles */
+
+html,
+body{
+  height: 100%;
+  width: 100%;
+}
+
+body{
+  font-family: 'Khula', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  background: url('../assets/spaceinvaders.png')
+}
+
+body.fontLoaded{
+  font-family: 'Khula', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+:global(#app){
+  height: 100%;
+  /* width: 60%; */
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: auto;
+}
+
+.wrapper{
+
+}
