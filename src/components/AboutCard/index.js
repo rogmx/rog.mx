@@ -3,6 +3,7 @@ import classNames from 'classnames'
 
 import style from './style'
 
+import Logo from '../Logo'
 import Avatar from './images/me.png'
 
 export default class AboutCard extends Component {
@@ -26,7 +27,7 @@ export default class AboutCard extends Component {
           }
         </div>
         <div className={style.AboutCard__Sidebar}>
-          <a href='#'></a>
+          <a href='#'><Logo /></a>
           <div className={style.AboutCard__Sidebar__SocialLinks__Wrapper}>
             <ul className={style.AboutCard__Sidebar__SocialLinks}>
             </ul>
