@@ -63,9 +63,10 @@
       list-style-type: none;
       padding: 0;
       position: relative;
+      margin: 0;
 
       &__Wrapper{
-        height: calc(100% - 189px);
+        height: calc(100% - 185px);
         min-height: 150px;
         line-height: 0;
         width: 32px;
