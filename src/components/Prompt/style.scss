@@ -1,0 +1,54 @@
+.Prompt{
+  font-family: Courier;
+  font-size: 14px;
+  font-weight: 200;
+  color: #dadada;
+  padding: 6px 0 0 0;
+  margin: 0 0 4px 0;
+  height: 30px;
+  background-color: #262626;
+
+  &__Symbol{
+    float: left;
+    padding: 0 2px 0 5px;
+    color: #0091FF;
+    font-size: 18px;
+    position: relative;
+    top: -6px;
+  }
+
+  &__CMD{
+    font-family: Courier;
+    font-size: 14px;
+    overflow: hidden;
+
+    &__Input{
+      float: left;
+      padding-left: 3px;
+      white-space: pre;
+      position: relative;
+      top: -1px;
+    }
+
+    &__Caret{
+      float: left;
+      margin-left: 1px;
+      width: 5px;
+      height: 18px;
+      background: #0091FF;
+    }
+
+    &--error{
+      color: #f33;
+      div{
+        background: #f33 !important;
+      }
+    }
+  }
+
+  input{
+    width: 0;
+    height: 0;
+    opacity: 0;
+  }
+}
