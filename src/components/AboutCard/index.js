@@ -3,6 +3,8 @@ import classNames from 'classnames'
 
 import style from './style'
 
+import Prompt from '../Prompt'
+
 import Logo from '../Logo'
 import Avatar from './images/me.png'
 
@@ -98,6 +100,7 @@ export default class AboutCard extends Component {
           {this.state.compact
             ? <div className={classNames([style.AboutCard__Activity, style['AboutCard__Activity--show']])}>
               <span className={style.AboutCard__Activity__Close} onClick={this.mouseClick.bind(null, '')} />
+              <Prompt command={this.state.section} />
             </div>
             : null
           }

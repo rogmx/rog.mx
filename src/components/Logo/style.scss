@@ -1,21 +1,21 @@
-.Logo {
+.Logo{
   margin: 5px auto 0 auto;
   width: 23px;
   height: 175px;
   flex-flow: row nowrap;
-  svg {
+  svg{
     width: 23px;
     margin: 0 auto;
   }
-  &__Invader {
+  &__Invader{
     fill-opacity: 1;
-    &--flip {
+    &--flip{
       fill-opacity: 0;
     }
   }
-  &__Letter {
+  &__Letter{
     fill-opacity: 1;
-    path {
+    path{
       transition: fill-opacity .4s linear;
     }
     &--animated{
