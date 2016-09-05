@@ -5,7 +5,7 @@
   color: #dadada;
   padding: 6px 0 0 0;
   margin: 0 0 4px 0;
-  height: 30px;
+  height: 24px;
   background-color: #262626;
 
   &__Symbol{
@@ -14,7 +14,7 @@
     color: #0091FF;
     font-size: 18px;
     position: relative;
-    top: -6px;
+    top: -3px;
   }
 
   &__CMD{
@@ -24,15 +24,17 @@
 
     &__Input{
       float: left;
-      padding-left: 3px;
+      padding-left: 1px;
       white-space: pre;
       position: relative;
-      top: -1px;
+      top: 1px;
     }
 
     &__Caret{
+      top: 0px;
+      position: relative;
       float: left;
-      margin-left: 1px;
+      margin-left: 2px;
       width: 5px;
       height: 18px;
       background: #0091FF;

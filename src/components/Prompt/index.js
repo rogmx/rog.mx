@@ -14,7 +14,7 @@ export default class Prompt extends Component {
     this.promptBlur = this.promptBlur.bind(this)
     this.promptFocus = this.promptFocus.bind(this)
     this.promptEnter = this.promptEnter.bind(this)
-    this.promptChange = this.promptChange.bind(this)
+    this.promptInput = this.promptInput.bind(this)
     this.promptKeyStroke = this.promptKeyStroke.bind(this)
   }
 
@@ -74,9 +74,10 @@ export default class Prompt extends Component {
     promptCaret.style.border = '1px solid #fff'
   }
 
-  promptChange (e) {
+  promptInput (e) {
     const promptInput = this.promptRef
     this.setState({prompt: promptInput.value})
+    console.log(promptInput.value)
   }
 
   promptKeyStroke (e) {
@@ -146,7 +147,7 @@ export default class Prompt extends Component {
           <span className={style.Prompt__CMD__Input}>{this.state.prompt}</span>
           <div ref={(caretRef) => { this.caretRef = caretRef }} className={style.Prompt__CMD__Caret} />
         </div>
-        <input ref={(promptRef) => { this.promptRef = promptRef }} type='text' value={this.state.prompt} onChange={this.promptChange} onBlur={this.promptBlur} onKeyDown={this.promptKeyStroke} />
+        <input ref={(promptRef) => { this.promptRef = promptRef }} type='text' value={this.state.prompt} onInput={this.promptInput} onBlur={this.promptBlur} onKeyDown={this.promptKeyStroke} />
       </form>
     )
   }
