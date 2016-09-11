@@ -26,7 +26,7 @@
       border-top-right-radius: 2px;
     }
     &__Info{
-      padding: 12px 10px 2px 12px;
+      padding: 10px 10px 2px 12px;
       &__Title{
         font-size: 20px;
         font-weight: 300;
@@ -114,6 +114,8 @@
   &__Activity{
     display: none;
     position: relative;
+    top: 6px;
+    border: none !important;
     &--show{
       display: block;
     }
