@@ -123,9 +123,12 @@ export default class Prompt extends Component {
 
     const promptNotFound = () => {
       const tempPrompt = this.state.prompt
+      const promptInput = this.promptRef
       this.setState({prompt: 'Error: Command not found.', promptValid: false})
+      promptInput.blur()
       setTimeout(() => {
         this.setState({prompt: tempPrompt, promptValid: true})
+        promptInput.focus()
       }, 666)
     }
 
