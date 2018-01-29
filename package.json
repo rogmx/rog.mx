@@ -27,7 +27,8 @@
     "preact-router": "^2.6.0",
     "promise-polyfill": "^7.0.2",
     "proptypes": "^1.1.0",
-    "serve": "^6.4.9"
+    "serve": "^6.4.9",
+    "webpack-sources": "^1.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.2.5",

@@ -1,12 +1,10 @@
 import webpack from 'webpack'
 import ExtractTextPlugin from 'extract-text-webpack-plugin'
 import HtmlWebpackPlugin from 'html-webpack-plugin'
-import autoprefixer from 'autoprefixer'
 import CopyWebpackPlugin from 'copy-webpack-plugin'
 import ReplacePlugin from 'replace-bundle-webpack-plugin'
 import OfflinePlugin from 'offline-plugin'
 import path from 'path'
-import V8LazyParseWebpackPlugin from 'v8-lazy-parse-webpack-plugin'
 
 const ENV = process.env.NODE_ENV || 'development'
 const CSS_MAPS = ENV !== 'production'
@@ -22,12 +20,7 @@ module.exports = {
   },
 
   resolve: {
-    extensions: ['', '.jsx', '.js', '.json', '.scss'],
-    modulesDirectories: [
-      path.resolve(__dirname, 'src/lib'),
-      path.resolve(__dirname, 'node_modules'),
-      'node_modules'
-    ],
+    extensions: ['.jsx', '.js', '.json', '.scss'],
     alias: {
       components: path.resolve(__dirname, 'src/components'),    // used for tests
       style: path.resolve(__dirname, 'src/style'),
@@ -37,11 +30,6 @@ module.exports = {
   },
 
   module: {
-    preLoaders: [{
-      test: /\.jsx?$/,
-      exclude: [path.resolve(__dirname, 'src')],
-      loader: 'source-map-loader'
-    }],
     loaders: [{
       test: /\.jsx?$/,
       exclude: /node_modules/,
@@ -49,20 +37,25 @@ module.exports = {
     }, {
       // Transform our own .(sass|css) files with PostCSS and CSS-modules
       test: /\.(scss|css)$/,
-      include: [path.resolve(__dirname, 'src/components')],
-      loader: ExtractTextPlugin.extract('style?singleton', [
-        `css-loader?localIdentName=[local]__&modules&importLoaders=1&sourceMap=${CSS_MAPS}`,
-        `postcss-loader`,
-        `sass-loader?sourceMap=${CSS_MAPS}`
-      ].join('!'))
-    }, {
-      test: /\.(scss|css)$/,
-      exclude: [path.resolve(__dirname, 'src/components')],
-      loader: ExtractTextPlugin.extract('style?singleton', [
-        `css-loader?localIdentName=[local]__&sourceMap=${CSS_MAPS}`,
-        `postcss-loader`,
-        `sass-loader?sourceMap=${CSS_MAPS}`
-      ].join('!'))
+      loader: ExtractTextPlugin.extract(
+        {
+          fallback: 'style-loader',
+          use: [
+            {
+              loader: `css-loader?localIdentName=[local]__[hash:base64:5]&modules&importLoaders=1&sourceMap=${CSS_MAPS}`
+            },
+            {
+              loader: `postcss-loader`,
+              options: {
+                plugins: () => [require('autoprefixer')]
+              }
+            },
+            {
+              loader: `sass-loader?sourceMap=${CSS_MAPS}`
+            }
+          ]
+        }
+      )
     }, {
       test: /\.json$/,
       loader: 'json-loader'
@@ -74,12 +67,9 @@ module.exports = {
       loader: ENV === 'production' ? 'file-loader' : 'url-loader'
     }]
   },
-  postcss: () => [
-    autoprefixer({ browsers: 'last 2 versions' })
-  ],
 
   plugins: ([
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new ExtractTextPlugin('style.css', {
       allChunks: true,
       disable: ENV !== 'production'
@@ -96,7 +86,6 @@ module.exports = {
       { from: './favicon.ico', to: './' }
     ])
   ]).concat(ENV === 'production' ? [
-    new V8LazyParseWebpackPlugin(),
     new webpack.optimize.UglifyJsPlugin({
       output: {
         comments: false
