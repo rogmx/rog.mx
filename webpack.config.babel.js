@@ -39,7 +39,7 @@ module.exports = {
   module: {
     preLoaders: [{
       test: /\.jsx?$/,
-      exclude: path.resolve(__dirname, 'src'),
+      exclude: [path.resolve(__dirname, 'src')],
       loader: 'source-map-loader'
     }],
     loaders: [{
@@ -51,7 +51,7 @@ module.exports = {
       test: /\.(scss|css)$/,
       include: [path.resolve(__dirname, 'src/components')],
       loader: ExtractTextPlugin.extract('style?singleton', [
-        `css-loader?localIdentName=[local]__[hash:base64:5]&modules&importLoaders=1&sourceMap=${CSS_MAPS}`,
+        `css-loader?localIdentName=[local]__&modules&importLoaders=1&sourceMap=${CSS_MAPS}`,
         `postcss-loader`,
         `sass-loader?sourceMap=${CSS_MAPS}`
       ].join('!'))
@@ -59,7 +59,7 @@ module.exports = {
       test: /\.(scss|css)$/,
       exclude: [path.resolve(__dirname, 'src/components')],
       loader: ExtractTextPlugin.extract('style?singleton', [
-        `css-loader?localIdentName=[local]__[hash:base64:5]&sourceMap=${CSS_MAPS}`,
+        `css-loader?localIdentName=[local]__&sourceMap=${CSS_MAPS}`,
         `postcss-loader`,
         `sass-loader?sourceMap=${CSS_MAPS}`
       ].join('!'))
@@ -141,11 +141,14 @@ module.exports = {
 
   node: {
     global: true,
-    process: false,
-    Buffer: false,
+    process: true,
+    Buffer: true,
     __filename: false,
-    __dirname: false,
-    setImmediate: false
+    __dirname: true,
+    setImmediate: false,
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
   },
 
   devtool: ENV === 'production' ? 'source-map' : 'cheap-module-eval-source-map',

@@ -2,6 +2,8 @@ import { h, Component } from 'preact'  // eslint-disable-line
 
 import style from './style'
 
+// import rog3r from 'rog3r'
+
 const activityTwitter = [
   {
     content: 'Breaking rocks in the hot sun. Breaking rocks in the hot sun. I fought the law and the law won. I fought the law and the law won. I fought the law and.',
@@ -37,47 +39,37 @@ const activityTwitter = [
   }
 ]
 
-const activityGithub = [
-  {
-    content: 'Pushed two commits to rog3r.',
-    date: '8 hours ago.'
-  },
-  {
-    content: 'Merge branch bugs to master.',
-    date: '8 hours ago.'
-  },
-  {
-    content: 'Pushed two commits to react-example',
-    date: '8 hours ago.'
-  },
-  {
-    content: 'Pushed two commits to rog3r.',
-    date: '8 hours ago.'
-  },
-  {
-    content: 'Merge branch bugs to master.',
-    date: '8 hours ago.'
-  },
-  {
-    content: 'Pushed two commits to react-example',
-    date: '8 hours ago.'
-  }
-]
-
 export default class ActivityLog extends Component {
   constructor (props) {
     super(props)
     this.state = {
-      section: ''
+      section: '',
+      activity: []
     }
-    this.getActivity = this.getActivity.bind(this)
     this.addActivityItem = this.addActivityItem.bind(this)
   }
 
   componentWillMount () {
-  }
+    let activity = []
+    if (this.props.section === 'github') {
+      /* rog3r.github().then(response => {
+        console.log(response)
+        response.forEach(function (commit) {
+          const item = {
+            date: commit.created_at,
+            content: `${commit.type}: ${commit.payload.commits[0].message}`
+          }
+          console.log(item)
+          activity.push(item)
+        })
+        this.setState({activity})
+      }) */
+    }
 
-  componentWillReceiveProps (nextProps) {
+    if (this.props.section === 'twitter') {
+      activity = activityTwitter
+      this.setState({activity})
+    }
   }
 
   addActivityItem (item, i) {
@@ -89,21 +81,11 @@ export default class ActivityLog extends Component {
     )
   }
 
-  getActivity (section) {
-    let activity = null
-    const activitySources = {
-      'twitter': activityTwitter,
-      'github': activityGithub
-    }
-
-    activity = activitySources.hasOwnProperty(section) ? activitySources[section] : []
-    return activity
-  }
-
   render () {
+    const activity = this.state.activity
     return (
       <div className={style.ActivityLog}>
-        {this.getActivity(this.props.section).map(this.addActivityItem)}
+        {activity.map(this.addActivityItem)}
       </div>
     )
   }
