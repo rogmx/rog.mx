@@ -6,19 +6,13 @@ import classNames from 'classnames'
 import style from './style'
 
 export default class Logo extends Component {
-  static propTypes = {
-    className: PropTypes.string,
-    classLetter: PropTypes.string,
-    classLetterAnimated: PropTypes.string
-  }
-
   constructor (props) {
     super(props)
     this.state = {
       animated: false,
-      logoInterval: null,
       flipInvader: false
     }
+    this.logoInterval = null
     this.mouseOver = this.mouseOver.bind(this)
     this.mouseOut = this.mouseOut.bind(this)
   }
@@ -56,14 +50,14 @@ export default class Logo extends Component {
   mouseOver () {
     this.setState({animated: true})
     this.animateLogo(false)
-    this.state.logoInterval = setInterval(() => {
+    this.logoInterval = setInterval(() => {
       this.animateLogo()
       this.setState({flipInvader: !this.state.flipInvader})
     }, 435)
   }
 
   mouseOut () {
-    clearInterval(this.state.logoInterval)
+    clearInterval(this.logoInterval)
     this.animateLogo(true)
     this.setState({animated: false})
     this.setState({flipInvader: false})

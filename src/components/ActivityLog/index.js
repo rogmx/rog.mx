@@ -2,42 +2,37 @@ import { h, Component } from 'preact'  // eslint-disable-line
 
 import style from './style'
 
-// import rog3r from 'rog3r'
+const activity = {
+  twitter: [{
+    content: 'Breaking rocks in the hot sun. Breaking rocks in the hot sun. I fought the law and the law won. I fought the law and the law won. I fought the law and.',
+    date: '8 hours ago.'
+  }, {
+    content: 'I fought the law and the law won. I fought the law and the law won.',
+    date: '8 hours ago.'
+  }, {
+    content: 'Breaking rocks in the hot sun. Breaking rocks in the hot sun. I fought the law and the law won. I fought the law and the law won. I fought the law and.',
+    date: '8 hours ago.'
+  }, {
+    content: 'I fought the law and the law won. I fought the law and the law won.',
+    date: '8 hours ago.'
+  }, {
+    content: 'I fought the law and the law won. I fought the law and the law won.',
+    date: '8 hours ago.'
+  }, {
+    content: 'I fought the law and the law won. I fought the law and the law won.',
+    date: '8 hours ago.'
+  }, {
+    content: 'I fought the law and the law won. I fought the law and the law won.',
+    date: '8 hours ago.'
+  }, {
+    content: 'I fought the law and the law won. I fought the law and the law won.',
+    date: '8 hours ago.'
+  }],
+  github: [],
+  music: [],
+  blog: []
+}
 
-const activityTwitter = [
-  {
-    content: 'Breaking rocks in the hot sun. Breaking rocks in the hot sun. I fought the law and the law won. I fought the law and the law won. I fought the law and.',
-    date: '8 hours ago.'
-  },
-  {
-    content: 'I fought the law and the law won. I fought the law and the law won.',
-    date: '8 hours ago.'
-  },
-  {
-    content: 'Breaking rocks in the hot sun. Breaking rocks in the hot sun. I fought the law and the law won. I fought the law and the law won. I fought the law and.',
-    date: '8 hours ago.'
-  },
-  {
-    content: 'I fought the law and the law won. I fought the law and the law won.',
-    date: '8 hours ago.'
-  },
-  {
-    content: 'I fought the law and the law won. I fought the law and the law won.',
-    date: '8 hours ago.'
-  },
-  {
-    content: 'I fought the law and the law won. I fought the law and the law won.',
-    date: '8 hours ago.'
-  },
-  {
-    content: 'I fought the law and the law won. I fought the law and the law won.',
-    date: '8 hours ago.'
-  },
-  {
-    content: 'I fought the law and the law won. I fought the law and the law won.',
-    date: '8 hours ago.'
-  }
-]
 
 export default class ActivityLog extends Component {
   constructor (props) {
@@ -49,26 +44,13 @@ export default class ActivityLog extends Component {
     this.addActivityItem = this.addActivityItem.bind(this)
   }
 
-  componentWillMount () {
-    let activity = []
-    if (this.props.section === 'github') {
-      /* rog3r.github().then(response => {
-        console.log(response)
-        response.forEach(function (commit) {
-          const item = {
-            date: commit.created_at,
-            content: `${commit.type}: ${commit.payload.commits[0].message}`
-          }
-          console.log(item)
-          activity.push(item)
-        })
-        this.setState({activity})
-      }) */
-    }
+  componentDidMount () {
+    this.setState({activity: activity[this.props.section]})
+  }
 
-    if (this.props.section === 'twitter') {
-      activity = activityTwitter
-      this.setState({activity})
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.section !== this.props.section) {
+      this.setState({activity: activity[nextProps.section]})
     }
   }
 

@@ -1,14 +1,8 @@
 <!DOCTYPE html 💻="Hey! I'm Rog 👾 🇲🇽 😎. Have a good day">
 <html>
 <head>
-	<% for (var chunk in htmlWebpackPlugin.files.css) { %>
-		<link rel="preload" href="<%= htmlWebpackPlugin.files.css[chunk] %>"  as="style">
-	<% } %>
-	<% for (var chunk in htmlWebpackPlugin.files.chunks) { %>
-		<link rel="preload" href="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>" as="script">
-	<% } %>
 	<meta charset="utf-8">
-	<title>Rogelio Alberto | rog.mx</title>
+	<title>Rogelio Alberto ▲ rog.mx</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
 	<meta name="description" content="Rog.mx">
 	<meta name="msapplication-TileColor" content="#673ab8">
@@ -20,10 +14,11 @@
 	<meta name="format-detection" content="telephone=no">
 	<meta name="theme-color" content="#673ab8">
 	<link rel="apple-touch-icon" sizes="180x180" href="./assets/icons/apple-touch-icon.png">
-	<link rel="icon" href="/assets/icons/favicon.ico" type="image/x-icon" />
+	<link rel="icon" href="/assets/favicon.ico" type="image/x-icon" />
 	<link rel="manifest" href="./manifest.json">
 	<link href="https://fonts.googleapis.com/css?family=Khula:300,600,400" rel="stylesheet">
 	<link href='https://fonts.googleapis.com/css?family=Share+Tech+Mono' rel='stylesheet' type='text/css'>
+	% preact.headEnd %>
 </head>
-<body></body>
+<body><% preact.bodyEnd %></body>
 </html>

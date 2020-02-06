@@ -21,7 +21,7 @@ export default class Prompt extends Component {
   static promptInterval = null
 
   componentWillMount () {
-    this.setState({prompt: this.props.command})
+    this.state = {prompt: this.props.command}
     this.prompt(this.props.command)
   }
 

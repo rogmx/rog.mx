@@ -12,7 +12,7 @@ export default class Icon extends Component {
   }
 
   componentWillMount () {
-    this.setState({color: this.props.color})
+    this.state = {color: this.props.color}
   }
 
   mouseOver () {
