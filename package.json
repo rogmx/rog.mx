@@ -33,7 +33,6 @@
     "css-loader": "^3.4.2",
     "node-sass": "^4.13.1",
     "normalize.css": "^8.0.1",
-    "offline-plugin": "^5.0.7",
     "postcss-loader": "^3.0.0",
     "preact": "^10.0.1",
     "preact-render-to-string": "^5.1.0",
