@@ -1,14 +1,18 @@
 .AboutCard{
   width: 450px;
   height: 360px;
-  overflow: auto;
+  overflow: hidden;
   display: flex;
   flex-wrap: wrap;
   margin: 0 auto;
   transition: height .4s ease-in;
+  border-radius: 3px;
+  @media screen and (max-width: 450px) {
+    width: 96%;
+  }
 
   &--compact{
-    height: 595px;
+    height: calc(100vh - 40px);
   }
 
   &__Bio{
@@ -17,6 +21,7 @@
     clear: both;
     box-sizing: border-box;
     width: 88%;
+    height: 100%;
     order: 1;
     border-top-right-radius: 2px;
     border-bottom-right-radius: 2px;
@@ -26,7 +31,7 @@
       border-top-right-radius: 2px;
     }
     &__Info{
-      padding: 10px 10px 2px 12px;
+      padding: 15px 10px 12px 10px;
       &__Title{
         font-size: 20px;
         font-weight: 300;
@@ -47,6 +52,7 @@
   }
 
   &__Sidebar{
+    height: 100%;
     line-height: 0;
     max-width: 12%;
     width: 12%;
@@ -114,10 +120,10 @@
   &__Activity{
     display: none;
     position: relative;
-    top: 6px;
     border: none !important;
     &--show{
       display: block;
+      height: calc(100% - 365px);
     }
 
     &__Close{
@@ -128,7 +134,7 @@
       font: 16px/100% arial, sans-serif;
       text-decoration: none;
       cursor: pointer;
-      &:after {;
+      &:after {
         content: '×';
       }
       &:hover {

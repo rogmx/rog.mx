@@ -93,10 +93,12 @@ export default class AboutCard extends Component {
         [style['AboutCard--compact']]: this.state.compact
       })}>
         <div className={style.AboutCard__Bio}>
-          <img src={Avatar} className={style.AboutCard__Bio__Avatar} />
-          <div className={style.AboutCard__Bio__Info}>
-            <h2 className={style.AboutCard__Bio__Info__Title}>Rogelio Alberto</h2>
-            <p className={style.AboutCard__Bio__Info__Subtitle}>Webmaster</p>
+          <div>
+            <img src={Avatar} className={style.AboutCard__Bio__Avatar} />
+            <div className={style.AboutCard__Bio__Info}>
+              <h2 className={style.AboutCard__Bio__Info__Title}>Rogelio Alberto</h2>
+              <p className={style.AboutCard__Bio__Info__Subtitle}>Webmaster</p>
+            </div>
           </div>
           {this.state.compact
             ? <div className={classNames([style.AboutCard__Activity, style['AboutCard__Activity--show']])}>
