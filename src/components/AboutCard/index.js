@@ -93,7 +93,10 @@ export default class AboutCard extends Component {
         [style['AboutCard--compact']]: this.state.compact
       })}>
         <div className={style.AboutCard__Bio}>
-          <div>
+          <div className={classNames({
+            [style.AboutCard__Bio__Top]: true,
+            [style['AboutCard__Bio__Top--compact']]: this.state.compact
+          })}>
             <img src={Avatar} className={style.AboutCard__Bio__Avatar} />
             <div className={style.AboutCard__Bio__Info}>
               <h2 className={style.AboutCard__Bio__Info__Title}>Rogelio Alberto</h2>

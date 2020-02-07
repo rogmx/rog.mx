@@ -10,9 +10,10 @@ html {
   cursor: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="28" height="30" style="font-size:24px"><text y="20">👾</text></svg>'), auto;
 }
 
-body{
-  font-family: 'Khula', -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
-  background: url('../assets/spaceinvaders.png')
+body {
+  font-family: 'Khula',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Oxygen-Sans,Ubuntu,Cantarell,'Helvetica Neue',sans-serif;
+  background-color: #000;
+  background-image: url('../assets/spaceinvaders.png');
 }
 
 #app {
